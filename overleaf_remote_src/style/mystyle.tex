@@ -1,0 +1,33 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{minted}
+\usepackage{csquotes}
+\usepackage{xltabular}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mdframed}
+\usepackage{supertabular}
+\usepackage{makecell}
+
+
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{bgOrange}{hsb}{0.08, 0.3, 1}
+\definecolor{bgBlue}{hsb}{0.55, 0.3, 1}
+\definecolor{borderOrange}{hsb}{0.08, 0.8, 1}
+\definecolor{borderBlue}{hsb}{0.55, 0.8, 1}
+
+\newcommand{\brcell}[2][c]{%
+\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\usepackage{enumitem}
+
+% reduce identation of unordered lists
+\setlist[itemize,1]{leftmargin=\dimexpr 10pt}
+% reduce identation of ordered lists
+\setlist[enumerate,1]{leftmargin=\dimexpr 10pt}
+% quotes: remove horizontal margins
+% https://tex.stackexchange.com/a/177204
+\renewenvironment{quote}
+  {\small\list{}{\rightmargin=0pt \leftmargin=0pt}%
+   \item\relax}
+  {\endlist}

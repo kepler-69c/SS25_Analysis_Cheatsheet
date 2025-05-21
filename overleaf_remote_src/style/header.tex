@@ -1,0 +1,16 @@
+\usepackage[normalem]{ulem} % Provides underlining capabilities
+
+% Adjust the space between paragraphs
+% \setlength{\parskip}{0.1cm}
+
+
+% Custom header format using fancyhdr package
+\usepackage{lastpage} % get last page of document for header
+\usepackage{fancyhdr} % Customizable headers and footers
+\pagestyle{fancy}
+\fancyhf{} % Clears default header/footer
+\lhead{\textbf{\subject} - \semester} % Left header
+\rhead{page \thepage /\pageref*{LastPage}} % Right header
+% \fancyfoot[C]{Page - \thepage} % Center the page number at the bottom
+
+\renewcommand{\headwidth}{\textwidth} % ensure the header is the same width as the page
