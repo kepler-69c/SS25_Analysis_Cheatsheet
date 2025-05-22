@@ -1,1 +1,76 @@
 \section{Analysis II - draft}
+
+\subsection{7. GDG (1. Ordnung)}
+
+\begin{itemize}
+  \item gewöhnlich: \quad \( F(x, y(x), y'(x), y''(x), \dots) = 0 \)
+  \item ordnung: \quad ordnung der höchsten ableitung
+  \item linear: \quad \( p_n(x)y^{(n)} + \dots + p_1(x)y' + p_0(x)y + g(x) = 0 \)
+  \item homogen: \quad \( p_n(x)y^{(n)} + \dots + p_1(x)y' + p_0(x)y = 0 \)
+\end{itemize}
+
+\textbf{Superpositionsprinzip:} \quad
+jede lineare kombination von lösungen einer homogenen GDG ist ebenfalls lösung der GDG.
+
+\textbf{Satz (Lösungsraum):}
+
+\[
+\dim \mathcal{Z} = n \quad / \quad \dim \mathcal{Z}_{\mathbb{R}} = n
+\]
+
+\begin{itemize}
+  \item[(i)] die menge 
+    \[
+    \mathcal{Z} := \left\{ f \in \mathcal{C}^n(\mathbb{R}; \mathbb{C}) \;\middle|\; f \text{ löst } \sum_{i=0}^{n} a_i(x) f^{(i)}(x) = 0 \right\}
+    \]
+    ist ein komplexer vektorraum.
+    
+  \item[(ii)] die menge 
+    \[
+    \mathcal{Z} := \left\{ f \in \mathcal{C}^n(\mathbb{R}; \mathbb{R}) \;\middle|\; f \text{ löst } \sum_{i=0}^{n} a_i(x) f^{(i)}(x) = 0 \right\}
+    \]
+    ist ein reeller vektorraum.
+\end{itemize}
+
+\textbf{GDG der Form:} \quad
+$f^{(n)} + a_{n-1} f^{(n-1)} + a_{n-2} f^{(n-2)} + \dots + a_0 f = 0$
+
+\textbf{Ansatz:} \quad $f := e^{\lambda t}$
+
+\textbf{Satz (Basis für den Lösungsraum):} \quad
+die funktionen \( f_{ik}(t) := t^k e^{\lambda_i t} \), \quad \( 1 \leq i \leq \ell, \; 0 \leq k \leq m_i \) \\
+bilden eine basis des komplexen vektorraums
+\[
+\mathcal{Z} := \left\{ f \in \mathcal{C}^n(\mathbb{R}; \mathbb{C}) \;\middle|\; f \text{ löst } \sum_{i=0}^{n} a_i f^{(i)} = 0 \right\}
+\]
+
+\textbf{Beispiel:} \quad
+\[
+\ddot{f} - 2\dot{f} + f = 0 \quad \Rightarrow \quad f(t) = c_1 e^t + c_2 t e^t
+\]
+
+\vspace{1em}
+
+\textcolor{orange}{\textbf{Zweite Ordnung}} \quad
+\textbf{GDG der Form:} \quad $\ddot{f} + a\_1 \dot{f} + a\_0 f = 0$ \qquad \text{(schwingkreis)}
+
+\[
+\omega_0 := \sqrt{a_0}, \qquad \delta := \frac{a_1}{2}
+\quad \Rightarrow \quad
+\ddot{f} + 2\delta \dot{f} + \omega_0^2 f = 0
+\]
+
+\[
+\Rightarrow \quad \mu := \sqrt{\delta^2 - \omega_0^2}, \qquad \omega_d := \sqrt{\omega_0^2 - \delta^2}
+\]
+
+\begin{itemize}
+  \item[1)] \( \delta < \omega_0 \): \quad
+    \( f(t) = e^{-\delta t} \left( a \cos(\omega_d t) + b \sin(\omega_d t) \right) \)
+
+  \item[2)] \( \delta = \omega_0 \): \quad
+    \( f(t) = (c_1 + c_2 t) e^{-\delta t} \)
+
+  \item[3)] \( \delta > \omega_0 \): \quad
+    \( f(t) = c_1 e^{(-\delta + \mu)t} + c_2 e^{(-\delta - \mu)t} \)
+\end{itemize}
