@@ -90,6 +90,166 @@ Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
 \quad \text{falls } f(x) > 0
 \]
 
+\textbf{Cauchy-Folge:}  
+\[
+(x_n) \subset \mathbb{R} \text{ ist Cauchy } \Leftrightarrow  
+\forall \varepsilon > 0\; \exists N \in \mathbb{N}:\; |x_n - x_m| < \varepsilon \; \forall m,n \geq N
+\]
+\textbf{Satz:}  
+\[
+(x_n) \text{ konvergiert } \Leftrightarrow \text{Cauchy-Folge}
+\]
+
+\textbf{Unendliche Grenzwerte:}  
+\[
+\lim_{n \to \infty} x_n = \infty \Leftrightarrow  
+\forall M > 0\; \exists N \in \mathbb{N}:\; x_n > M\; \forall n \geq N
+\]
+\[
+\lim_{n \to \infty} x_n = -\infty \Leftrightarrow  
+\forall M > 0\; \exists N \in \mathbb{N}:\; x_n < -M\; \forall n \geq N
+\]
+
+\textbf{Reihe }
+\[
+\sum_{k=0}^\infty a_k \text{ konvergiert} \Leftrightarrow 
+\lim_{n \to \infty} s_n = A \in \mathbb{R},\quad s_n := \sum_{k=0}^n a_k
+\]
+\[
+\textbf{Wenn } \sum a_k \text{ konvergiert, dann } \lim a_k = 0
+\]
+
+\textbf{Restlemma:}  
+\[
+\sum_{k=0}^\infty a_k \text{ konvergiert } \Leftrightarrow  
+\sum_{k=N}^\infty a_k \text{ konvergiert } \quad \forall N \in \mathbb{N}
+\]
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Reihe} & \textbf{Bedingung} & \textbf{Konvergenz} \\
+\hline
+\( \sum z^k \) & \( |z| < 1 \) & konvergent \\
+              & \( |z| \geq 1 \) & divergent \\
+\hline
+\( \sum \frac{1}{k} \) & — & divergent (harmonisch) \\
+\hline
+\( \sum \frac{1}{k^\alpha} \) & \( \alpha > 1 \) & konvergent \\
+                             & \( \alpha \leq 1 \) & divergent \\
+\hline
+\( \sum a_k \), \( \sum b_k \) & \( 0 \leq a_k \leq b_k \), \( \sum b_k \) konv. & \( \Rightarrow \sum a_k \) konv. \\
+\hline
+\( \sum a_k \), \( \sum b_k \) & \( a_k \sim b_k \) und \( \sum b_k \) konv. & \( \Rightarrow \sum a_k \) konv. \\
+\hline
+\end{tabular}
+
+
+\textbf{Majorantenkriterium:}  
+\[
+0 \leq a_k \leq b_k,\; \sum b_k \text{ konv.} \;\Rightarrow\; \sum a_k \text{ konv.}
+\]
+
+\textbf{Minorantenkriterium:}  
+\[
+0 \leq a_k \leq b_k,\; \sum a_k \text{ divergiert} \;\Rightarrow\; \sum b_k \text{ divergiert}
+\]
+
+\textbf{Cauchy-Kondensation:}  
+\[
+(a_k) \downarrow,\; a_k \geq 0:  
+\quad \sum a_k \text{ konv.} \;\Leftrightarrow\; \sum 2^k a_{2^k} \text{ konv.}
+\]
+
+\textbf{Leibniz-Kriterium (alternierende Reihen)}  
+Anwendbar für Reihen der Form:
+\[
+\sum_{k=0}^\infty (-1)^k a_k \quad \text{oder} \quad \sum_{k=0}^\infty (-1)^{k+1} a_k
+\]
+
+\textbf{Leibniz-Kriterium:}  
+\(
+\sum (-1)^k a_k \text{ konvergiert, falls:}
+\)
+
+\begin{tabular}{ll}
+\checkmark & \( a_k \geq 0 \) \\
+\checkmark & \( a_k \downarrow \) (monoton fallend) \\
+\checkmark & \( \lim a_k = 0 \)
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Bsp: } \( \sum_{k=1}^\infty \frac{(-1)^k}{k} \)
+
+\begin{tabular}{ll}
+\checkmark & \( \frac{1}{k} \geq 0 \) \\
+\checkmark & \( \frac{1}{k+1} < \frac{1}{k} \) \\
+\checkmark & \( \lim \frac{1}{k} = 0 \)
+\Rightarrow \text{ konvergiert nach Leibniz}
+\end{tabular}
+
+\textbf{Wurzelkriterium:}  
+\( \alpha := \limsup \sqrt[n]{|a_n|} \)
+
+\[
+\alpha < 1 \Rightarrow \sum a_n \text{ konv. absolut}, \quad
+\alpha > 1 \Rightarrow \sum a_n \text{ divergiert}
+\]
+
+\textbf{Bsp: } \( a_n = \frac{1}{3^n} \Rightarrow \sqrt[n]{|a_n|} = \frac{1}{3} \Rightarrow \alpha = \frac{1}{3} < 1 \)
+
+\( \Rightarrow \sum a_n \) konvergiert absolut
+
+\textbf{Quotientenkriterium:}  
+\( \alpha := \lim \left| \frac{a_{n+1}}{a_n} \right| \)
+
+\[
+\alpha < 1 \Rightarrow \sum a_n \text{ konv. absolut}, \quad
+\alpha > 1 \Rightarrow \sum a_n \text{ divergiert}
+\]
+
+\textbf{Bsp: } \( a_k = \frac{(k!)^2}{(2k)!} \)
+
+\[
+\frac{a_{k+1}}{a_k} = \frac{((k+1)!)^2}{(2k+2)!} \cdot \frac{(2k)!}{(k!)^2}
+= \frac{(k+1)^2 \cdot (k!)^2}{(2k+2)(2k+1)(2k)!} \cdot \frac{(2k)!}{(k!)^2}
+= \frac{(k+1)^2}{(2k+2)(2k+1)}
+\]
+
+\[
+\Rightarrow \lim \frac{(k+1)^2}{(2k+2)(2k+1)} = \frac{1}{4} < 1
+\Rightarrow \sum a_k \text{ konvergiert absolut}
+\]
+
+\textbf{Zeta-Reihe:}  
+\[
+\zeta(s) := \sum_{n=1}^\infty \frac{1}{n^s}, \quad s > 1
+\]
+
+\textbf{Produktsatz:}  
+Wenn \( \sum a_n \), \( \sum b_n \) absolut konvergieren, dann konvergiert auch  
+\[
+\sum_{n=0}^\infty a_{\alpha_1(n)} b_{\alpha_2(n)}
+= \left( \sum a_n \right)\left( \sum b_n \right)
+\]
+für jede Bijektion \( \alpha: \mathbb{N} \to \mathbb{N} \times \mathbb{N} \)
+
+\textbf{Cauchy-Produkt:}  
+Wenn \( \sum a_n \), \( \sum b_n \) absolut konvergieren, dann:
+\[
+\left( \sum a_n \right) \left( \sum b_n \right)
+= \sum_{n=0}^\infty \left( \sum_{k=0}^n a_k b_{n-k} \right)
+\]
+
+\textbf{Potenzreihe:}  
+\[
+\sum_{n=0}^\infty a_n x^n
+\]
+
+\[
+\rho = \limsup \sqrt[n]{|a_n|} \quad \text{oder} \quad \rho = \limsup \left| \frac{a_{n+1}}{a_n} \right|, \quad
+R = \frac{1}{\rho}
+\]
+
 % Stetigkeit und Topologie___________________________________________________________________________________________________
 %%%%%%
 \subsection{4. Stetigkeit, Topologie}
@@ -101,4 +261,4 @@ Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
 
 % Integration___________________________________________________________________________________________________
 %%%%%%
-\subsection{6. Differentialrechnung auf R}
+\subsection{6. Integration}
