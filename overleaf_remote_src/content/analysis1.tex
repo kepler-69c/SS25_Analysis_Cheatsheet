@@ -1,3 +1,104 @@
 \section{Analysis I - draft}
-whatever
 
+% Grundlagen und Logik___________________________________________________________________________________________________
+%%%%%%
+\subsection{1. Grundlagen und Logik}
+
+% Zahlen und Vektoren___________________________________________________________________________________________________
+%%%%%%
+\subsection{2. Zahlen und Vektoren}
+
+
+% Folgen und Reihen ___________________________________________________________________________________________________
+%%%%%%
+\subsection{3. Folgen und Reihen}  
+Eine \emph{ Zahlenfolge} ist eine Funktion  
+\[
+a : \mathbb{N}_0 \to \mathbb{C}, \quad n \mapsto a_n := a(n).
+\]  
+
+\textbf{Konvergenz einer Folge:}  
+Eine Folge \( (x_n) \subset \mathbb{R} \) \textbf{konvergiert} gegen \( A \in \mathbb{R} \), falls  
+\[
+\forall \varepsilon > 0\; \exists N \in \mathbb{N}:\; \forall n \geq N:\; |x_n - A| < \varepsilon.
+\]  
+Dann schreiben wir \( \lim_{n \to \infty} x_n = A \) und nennen \( A \) den \textbf{Grenzwert}.
+
+\[
+Konvergenz \to Beschränktheit
+\]  
+
+\textbf{Beispiel Konvergent:} \( x_n = \frac{1}{n} \Rightarrow \lim\limits_{n \to \infty} x_n = 0 \)
+
+\textbf{Beispiel Divergent:} \( x_n = n \Rightarrow \lim\limits_{n \to \infty} x_n = \infty \)
+
+\textbf{Rechenregeln für konvergente Folgen:}  
+Seien \( \lim\limits_{n \to \infty} x_n = A \), \( \lim\limits_{n \to \infty} y_n = B \), \( \alpha \in \mathbb{R} \):
+
+\begin{itemize}
+  \item \( \lim\limits_{n \to \infty} (x_n + y_n) = A + B \)
+  \item \( \lim\limits_{n \to \infty} (x_n y_n) = AB \)
+  \item \( \lim\limits_{n \to \infty} (\alpha x_n) = \alpha A \)
+  \item Falls \( x_n \neq 0\ \forall n \), \( A \neq 0 \):  
+        \( \lim\limits_{n \to \infty} \left( \frac{1}{x_n} \right) = \frac{1}{A} \)
+  \item Falls \( x_n \leq y_n\ \forall n \): \( A \leq B \)
+\end{itemize}
+
+\textbf{Monotone Konvergenz:}  
+Eine monotone Folge \( (x_n) \subset \mathbb{R} \) konvergiert genau dann, wenn sie beschränkt ist.
+
+\begin{itemize}
+  \item Monoton wachsend:  
+  \( \lim\limits_{n \to \infty} x_n = \sup \{ x_n \mid n \in \mathbb{N} \} \)
+
+  \item Monoton fallend:  
+  \( \lim\limits_{n \to \infty} x_n = \inf \{ x_n \mid n \in \mathbb{N} \} \)
+\end{itemize}
+
+\textbf{Euler'sche Zahl:}  
+\[
+e := \lim\limits_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n
+\]
+
+\textbf{Eigenschaften:}
+\begin{itemize}
+  \item \( e \) ist wohldefiniert (Folge konvergiert).
+  \item \( e \approx 2{,}718\ldots \) (irrational, nicht periodisch).
+\end{itemize}
+
+\textbf{Obere/Untere Grenzwerte:}  
+Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
+
+\[
+\limsup\limits_{n \to \infty} x_n = \lim\limits_{n \to \infty} \left( \sup_{k \geq n} x_k \right)
+\]
+\[
+\liminf\limits_{n \to \infty} x_n = \lim\limits_{n \to \infty} \left( \inf_{k \geq n} x_k \right)
+\]
+
+\textbf{Immer:}  
+\[
+\liminf x_n \leq \limsup x_n
+\]
+\textbf{Bernoulli-de l'Hôspital:} (Abl. existiert, f und g diffbar um a und $g'(x) \not = 0$)
+\[
+\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \lim\limits_{x \to a} \frac{f'(x)}{g'(x)}
+\]
+\textbf{\( e^{\log} \)–Trick:}  
+\[
+\lim f(x)^{g(x)} = \exp\left( \lim g(x) \cdot \log f(x) \right)
+\quad \text{falls } f(x) > 0
+\]
+
+% Stetigkeit und Topologie___________________________________________________________________________________________________
+%%%%%%
+\subsection{4. Stetigkeit, Topologie}
+
+
+% Differentialrechnung auf R___________________________________________________________________________________________________
+%%%%%%
+\subsection{5. Differentialrechnung auf R}
+
+% Integration___________________________________________________________________________________________________
+%%%%%%
+\subsection{6. Differentialrechnung auf R}
