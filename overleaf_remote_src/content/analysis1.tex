@@ -245,15 +245,169 @@ Wenn \( \sum a_n \), \( \sum b_n \) absolut konvergieren, dann:
 \sum_{n=0}^\infty a_n x^n
 \]
 
+\textbf{Konvergenzradius:}  
+Gegeben Potenzreihe \( \sum a_n x^n \), setze
 \[
-\rho = \limsup \sqrt[n]{|a_n|} \quad \text{oder} \quad \rho = \limsup \left| \frac{a_{n+1}}{a_n} \right|, \quad
+\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|} \quad \text{oder} \quad
+\rho = \limsup_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|, \quad
 R = \frac{1}{\rho}
 \]
+
+\[
+R =
+\begin{cases}
+0, & \text{falls } \rho = \infty \\
+\infty, & \text{falls } \rho = 0 \\
+\rho^{-1}, & \text{sonst}
+\end{cases}
+\]
+
+\textbf{Verhalten:}
+\begin{itemize}
+  \item \( |x| < R \) \quad absolut konvergent
+  \item \( |x| > R \) \quad divergent
+  \item \( |x| = R \) \quad einzeln prüfen
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{Summe und Produkt von Potenzreihen:}  
+Falls \( \sum a_n x^n \), \( \sum b_n x^n \) Konvergenzradius \( \geq R \) haben, dann gilt:
+\[
+\sum (a_n + b_n)x^n, \quad
+\sum_{n=0}^\infty \left( \sum_{k=0}^n a_k b_{n-k} \right) x^n
+\quad \text{haben ebenfalls Radius } \geq R
+\]
+
+\vspace{0.5em}
+
+\textbf{Exponentialfunktion:}
+\[
+e^x = \sum_{k=0}^\infty \frac{x^k}{k!} = \lim_{n \to \infty} \left(1 + \frac{x}{n}\right)^n
+\quad \text{mit Radius } R = \infty
+\]
+
+\textbf{Eulerformel:}  
+\[
+e^{ix} = \cos(x) + i \sin(x)
+\quad\Rightarrow\quad
+\sin(x) = \frac{e^{ix} - e^{-ix}}{2i},\quad
+\cos(x) = \frac{e^{ix} + e^{-ix}}{2}
+\]
+
+\textbf{Additionstheoreme:}  
+\[
+\sin(x + y) = \sin x \cos y + \cos x \sin y
+\]
+\[
+\cos(x + y) = \cos x \cos y - \sin x \sin y
+\]
+
+\textbf{Periodizität:}
+\[
+\begin{aligned}
+\sin(x + \tfrac{\pi}{2}) &= \cos(x) & \qquad \cos(x + \tfrac{\pi}{2}) &= -\sin(x) \\
+\sin(x + \pi) &= -\sin(x) & \cos(x + \pi) &= -\cos(x) \\
+\sin(x + 2\pi) &= \sin(x) & \cos(x + 2\pi) &= \cos(x)
+\end{aligned}
+\]
+
+\textbf{Wichtige Potenzreihen:}
+\begin{tabular}{|c|c|c|}
+\hline
+Funktion & Potenzreihe & Konvergenzradius \\
+\hline
+\( e^x \) & \( \sum\limits_{n=0}^\infty \frac{x^n}{n!} \) & \( \infty \) \\
+\hline
+\( \sin(x) \) & \( \sum\limits_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} \) & \( \infty \) \\
+\hline
+\( \cos(x) \) & \( \sum\limits_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} \) & \( \infty \) \\
+\hline
+\( \frac{1}{1 - x} \) & \( \sum\limits_{n=0}^\infty x^n \) & \( 1 \) \\
+\hline
+\( \ln(1 + x) \) & \( \sum\limits_{n=1}^\infty \frac{(-1)^{n+1} x^n}{n} \) & \( 1 \) \\
+\hline
+\( \arctan(x) \) & \( \sum\limits_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1} \) & \( 1 \) \\
+\hline
+\end{tabular}
+
+
 
 % Stetigkeit und Topologie___________________________________________________________________________________________________
 %%%%%%
 \subsection{4. Stetigkeit, Topologie}
+\textbf{Stetigkeit in } $x_0 \in D \subset \mathbb{R}$:  
+\[
+\forall \varepsilon > 0\; \exists \delta > 0:\; |x - x_0| < \delta \Rightarrow |f(x) - f(x_0)| < \varepsilon
+\]
 
+\textbf{f ist stetig in } D, falls f in jedem Punkt von D stetig ist.
+
+\textbf{Grenzwert in } $x_0$:  
+\[
+\lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
+\forall \varepsilon > 0\; \exists \delta > 0:\; |x - x_0| < \delta \Rightarrow |f(x) - y_0| < \varepsilon
+\]
+
+\textbf{Beispiel:}  
+$f(x) = 3x - 2 \quad \Rightarrow \lim_{x \to a} f(x) = 3a - 2$
+
+\textbf{Zwischenwertsatz:}  
+f stetig auf [a, b],\; f(a) \leq f(b),\; c \in [f(a), f(b)]  
+\[
+\Rightarrow \exists \bar{x} \in [a, b]: f(\bar{x}) = c
+\]
+
+\textbf{Verknüpfung:}  
+f stetig in \( x_0 \),\; g stetig in \( f(x_0) \)  
+\[
+\Rightarrow g \circ f \text{ stetig in } x_0
+\]
+
+\textbf{Grenzwert:}  
+\[
+\lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
+\forall \varepsilon > 0\; \exists \delta > 0:\;
+\|x - x_0\| \leq \delta \Rightarrow \|f(x) - y_0\| \leq \varepsilon
+\]
+
+\textbf{Schreibweise:}  
+\( \lim\limits_{x \to x_0} f(x) = y_0 \)
+
+\textbf{Kompaktheit:}  
+\( A \subset \mathbb{R}^n \) ist kompakt  
+\[
+\Leftrightarrow \text{abgeschlossen und beschränkt}
+\]
+\[
+\Leftrightarrow \text{jede Folge in } A \text{ hat konvergente Teilfolge in } A
+\]
+
+\textbf{Satz:}  
+Ist \( f: [a,b] \to \mathbb{R} \) stetig, dann ist \( f \) beschränkt.
+
+\textbf{Beispiel:}  
+\( f(x) = \frac{1}{1 + x^2} \) auf \( [-2, 2] \) stetig ⇒ beschränkt durch \( 0 < f(x) \leq 1 \)
+
+\textbf{Satz:}  
+\( K \subset \mathbb{R}^n \) kompakt,\; \( f: K \to \mathbb{R}^m \) stetig  
+\[
+\Rightarrow f(K) \text{ ist kompakt}
+\]
+
+
+\textbf{Korollar:}  
+\( f: K \to \mathbb{R} \) stetig, \( K \subset \mathbb{R}^n \) kompakt, nicht leer  
+\[
+\Rightarrow f \text{ besitzt Maximum und Minimum auf } K
+\]
+
+
+\textbf{Lemma:}  
+Für nichtleere kompakte \( Q \subset \mathbb{R} \):  
+\[
+\sup Q, \inf Q \in Q
+\]
 
 % Differentialrechnung auf R___________________________________________________________________________________________________
 %%%%%%
