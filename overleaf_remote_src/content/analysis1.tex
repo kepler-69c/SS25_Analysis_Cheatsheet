@@ -3,11 +3,46 @@
 % Grundlagen und Logik___________________________________________________________________________________________________
 %%%%%%
 \subsection{1. Grundlagen und Logik}
+\textbf{Aussagen} sind wahr/falsch.  
+Negation: $\lnot A$.  
+
+Konjunktion: $A\wedge B$.  
+
+Disjunktion: $A\vee B$.  
+
+Implikation: $A\Rightarrow B$ (wahr, außer $A=T,B=F$).  
+
+Äquivalenz: $A\Leftrightarrow B$ ($A\Rightarrow B$ und $B\Rightarrow A$). 
+
+\textbf{Modus ponens}: Aus $A$ und $A\Rightarrow B$ folgt $B$.  
+
+\textbf{Kontraposition}: $A\Rightarrow B\equiv(\lnot B)\Rightarrow(\lnot A)$.  
+
+\textbf{Widerspruchsbeweis}: Annahme $\lnot A\Rightarrow\,$Widerspruch.  
+
+\textbf{Induktion}:  
+\[
+\Bigl(P(0)\;\wedge\;\forall k:\,P(k)\Rightarrow P(k+1)\Bigr)\;\Rightarrow\;\forall n:P(n).
+\]
 
 % Zahlen und Vektoren___________________________________________________________________________________________________
 %%%%%%
 \subsection{2. Zahlen und Vektoren}
-
+\textbf{N, Z, Q, R, C.}  
+\textbf{Reelle Zahlen:} vollständiges geordnetes Feld.  
+\textbf{Supremum/Infimum:} Für $A\subset\R$ beschränkt:  
+\[
+\sup A:=\text{kleinstes obere Schranke},\quad
+\inf A:=\text{größte untere Schranke}.
+\]
+\textbf{Komplexe Zahlen:} $z=a+ib,\;a,b\in\R,\;i^2=-1$.  
+Betrag: $|z|=\sqrt{a^2+b^2}$.  
+Konjugierte: $\overline z=a-ib$.  
+\[
+z_1+z_2=(a_1+a_2)+i(b_1+b_2),\quad
+z_1z_2=(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1).
+\]
+Polarform: $z=r e^{i\varphi},\;r=|z|,\;\varphi=\arg z$.
 
 % Folgen und Reihen ___________________________________________________________________________________________________
 %%%%%%
@@ -124,23 +159,43 @@ Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
 \sum_{k=0}^\infty a_k \text{ konvergiert } \Leftrightarrow  
 \sum_{k=N}^\infty a_k \text{ konvergiert } \quad \forall N \in \mathbb{N}
 \]
+\footnotesize
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{Reihe} & \textbf{Bedingung} & \textbf{Konvergenz} \\
+\textbf{Objekt} & \textbf{Bedingung} & \textbf{Konvergenz / Wert} \\
 \hline
-\( \sum z^k \) & \( |z| < 1 \) & konvergent \\
-              & \( |z| \geq 1 \) & divergent \\
+$a_k = \frac{1}{k}$ 
+  & — 
+  & konvergent, $\displaystyle\lim_{k\to\infty}a_k = 0$ \\
 \hline
-\( \sum \frac{1}{k} \) & — & divergent (harmonisch) \\
+$a_k = z^k$ 
+  & $|z|<1$ 
+  & konvergent, $\displaystyle\lim_{k\to\infty}z^k = 0$ \\
+  & $|z|\ge1$ 
+  & divergent \\
 \hline
-\( \sum \frac{1}{k^\alpha} \) & \( \alpha > 1 \) & konvergent \\
-                             & \( \alpha \leq 1 \) & divergent \\
+$\displaystyle \sum_{k=1}^\infty \frac{1}{k}$ 
+  & — 
+  & divergent (harmonisch) \\
 \hline
-\( \sum a_k \), \( \sum b_k \) & \( 0 \leq a_k \leq b_k \), \( \sum b_k \) konv. & \( \Rightarrow \sum a_k \) konv. \\
+$\displaystyle \sum_{k=1}^\infty \frac{1}{k^\alpha}$ 
+  & $\alpha > 1$ 
+  & konvergent \\
+  & $\alpha \le 1$ 
+  & divergent \\
 \hline
-\( \sum a_k \), \( \sum b_k \) & \( a_k \sim b_k \) und \( \sum b_k \) konv. & \( \Rightarrow \sum a_k \) konv. \\
+$\displaystyle \sum_{k=0}^\infty z^k$ 
+  & $|z|<1$ 
+  & konvergent, $\displaystyle\sum_{k=0}^\infty z^k \;=\;\frac{1}{1-z}$ \\
+  & $|z|\ge1$ 
+  & divergent \\
+\hline
+$\displaystyle \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k}$ 
+  & — 
+  & konvergent, $\displaystyle\sum_{k=1}^\infty \frac{(-1)^{k-1}}{k} = \ln(2)$ \\
 \hline
 \end{tabular}
+
 
 
 \textbf{Majorantenkriterium:}  
@@ -182,7 +237,7 @@ Anwendbar für Reihen der Form:
 
 \begin{tabular}{ll}
 \checkmark & \( \frac{1}{k} \geq 0 \) \\
-\checkmark & \( \frac{1}{k+1} < \frac{1}{k} \) \\
+\checkmark & \( \frac{1}{k+1} < \frac{1}{k} \) bzw. \( f(x) = \frac{1}{x},\ f'(x) = -\frac{1}{x^2} < 0 \) ⇒ monoton fallend \\
 \checkmark & \( \lim \frac{1}{k} = 0 \)
 \Rightarrow \text{ konvergiert nach Leibniz}
 \end{tabular}
@@ -412,6 +467,97 @@ Für nichtleere kompakte \( Q \subset \mathbb{R} \):
 % Differentialrechnung auf R___________________________________________________________________________________________________
 %%%%%%
 \subsection{5. Differentialrechnung auf R}
+
+\begin{definition}[Ableitung]
+  Sei $f:I\subset\R\to\R$, $x_0\in I$. Die Ableitung von $f$ in $x_0$ ist
+  \[
+    f'(x_0) = \lim_{h\to0} \frac{f(x_0 + h) - f(x_0)}{h},
+  \]
+  falls der Grenzwert existiert. Dann heißt $f$ differenzierbar in $x_0$.
+\end{definition}
+\begin{itemize}
+  \item Differenzierbarkeit impliziert Stetigkeit in $x_0$.
+  \item \textbf{Regeln:}
+    \[
+      (f+g)' = f' + g', \quad 
+      (f\cdot g)' = f'\,g + f\,g', \quad
+      \Bigl(\tfrac{f}{g}\Bigr)' = \frac{f'\,g - f\,g'}{g^2}.
+    \]
+  \item \textbf{Kettenregel:} Ist $g$ in $x_0$ differenzierbar, $f$ in $g(x_0)$ differenzierbar, so
+    \[
+      (f\circ g)'(x_0) = f'(g(x_0)) \cdot g'(x_0).
+    \]
+    \emph{Beispiel:} $f(u)=u^3$, $g(x)=\sin x$, dann $(f\circ g)'(x)=3\sin^2(x)\cos x$.
+  \item \textbf{Potenzregel:} $(x^n)' = n x^{n-1}$ für $n\in\N$.
+  \item \textbf{Logarithmus und Exponential:}  
+    \[
+      (e^x)' = e^x,\quad (\ln x)' = \frac{1}{x},\; x>0.
+    \]
+  \item \textbf{Umkehrregel:} Ist $f$ bijektiv, differenzierbar und $f'(x)\ne0$, dann
+    \[
+      (f^{-1})'(y) = \frac{1}{f'(x)},\quad y = f(x).
+    \]
+    \emph{Beispiel:} $f(x)=e^x$, $f^{-1}(y)=\ln y$, $(\ln y)' = 1/y$.
+\end{itemize}
+
+\begin{theorem}[Rolle]
+  Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$, und $f(a)=f(b)$. Dann $\exists \xi\in(a,b)$ mit $f'(\xi)=0$.
+\end{theorem}
+\begin{theorem}[Mittelwertsatz von Lagrange]
+  Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$. Dann $\exists\xi\in(a,b)$ mit
+  \[
+    f'(\xi) = \frac{f(b)-f(a)}{b-a}.
+  \]
+\end{theorem}
+\begin{corollary}[Monotoniekriterium]
+  Ist $f$ differenzierbar auf $(a,b)$, dann
+  \[
+    f'(x) > 0\;\forall x\in(a,b)\;\Longleftrightarrow\;f\text{ streng monoton steigend}.
+  \]
+  Entsprechend für $f'(x)<0$ streng fallend.
+\end{corollary}
+\begin{example}
+  $f(x)=x^3 - 3x + 2$, $f'(x)=3x^2 - 3 = 3(x^2 - 1)$, Nullstellen $x=\pm1$.  
+  Auf $(-\infty,-1)$ und $(1,\infty)$ ist $f'>0$ (steigend), auf $(-1,1)$ ist $f'<0$ (fallend).  
+  Lokale Extrema: $f(-1)=4$ (Maximum), $f(1)=0$ (Minimum).
+\end{example}
+
+\begin{theorem}[Bernoulli–de l’Hôpital]
+  Seien $f,g$ differenzierbar in einer Umgebung von $a$ (ausgenommen evtl.\ bei $a$ selbst), und $f(a)=g(a)=0$ oder $\pm\infty$, $g'(x)\ne0$ auf dieser Umgebung (außer evtl.\ bei $a$). Wenn
+  \[
+    \lim_{x\to a} \frac{f'(x)}{g'(x)} = L \in \R \cup \{\pm\infty\},
+  \]
+  dann
+  \[
+    \lim_{x\to a} \frac{f(x)}{g(x)} = L.
+  \]
+\end{theorem}
+\begin{example}
+  \[
+    \lim_{x\to0} \frac{\sin x}{x} 
+    \;\stackrel{\text{L'Hôpital}}= 
+    \lim_{x\to0} \frac{\cos x}{1} = 1.
+  \]
+\end{example}
+
+\begin{theorem}[Taylor, 1-D]
+  Sei $f$ $(n+1)$-mal differenzierbar im Intervall um $x_0$. Dann gilt für $x$ in einer Umgebung:
+  \[
+    f(x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k 
+    \;+\; R_{n+1}(x),
+  \]
+  wobei das Restglied in Lagrange-Form
+  \[
+    R_{n+1}(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\,(x - x_0)^{n+1}
+    \quad\text{für ein }\xi\text{ zwischen }x_0\text{ und }x.
+  \]
+\end{theorem}
+\begin{example}
+  $f(x) = e^x$, Entwicklung um $0$ bis Ordnung $2$:
+  \[
+    e^x = 1 + x + \frac{x^2}{2} + \frac{e^\xi}{6} x^3 \quad(\xi\in(0,x)).
+  \]
+\end{example}
 
 % Integration___________________________________________________________________________________________________
 %%%%%%
