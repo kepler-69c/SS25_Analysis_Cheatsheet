@@ -822,6 +822,49 @@ Ableiten bei \(x_0\) ist eine lineare Abbildung \(T(f) := f'(x_0)\)
   \]
 \end{example}
 
+\textbf{Arkussfunktionen:}
+\begin{itemize}
+  \item \(\arcsin: [-1, 1] \to \left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right], \quad \arcsin'(y) = \frac{1}{\sqrt{1 - y^2}}\)
+  \item \(\arccos: [-1, 1] \to [0, \pi], \quad \arccos'(y) = \frac{-1}{\sqrt{1 - y^2}}\)
+  \item \(\arctan: \mathbb{R} \to \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right), \quad \arctan'(y) = \frac{1}{1 + y^2}\)
+\end{itemize}
+
+\textbf{Hyperbelfunktionen:} \quad
+\(\cosh x = \tfrac{e^x + e^{-x}}{2},\;
+\sinh x = \tfrac{e^x - e^{-x}}{2},\;
+\tanh x = \tfrac{\sinh x}{\cosh x} = \tfrac{e^x - e^{-x}}{e^x + e^{-x}}\)
+
+
+\textbf{Hyperbel- und Areafunktionen:}
+\begin{itemize}
+  \item \(\cosh(x) = \cos(ix),\quad \sinh(x) = \sin(ix)\)
+  \item \(\cosh^2 x - \sinh^2 x = 1\)
+  \item \(\cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y\)
+  \item \(\sinh(x+y) = \sinh x \cosh y + \cosh x \sinh y\)
+  \item \(\frac{d}{dx} \cosh x = \sinh x,\quad \frac{d}{dx} \sinh x = \cosh x,\quad \frac{d}{dx} \tanh x = \frac{1}{\cosh^2 x}\)
+  \item Umkehrfunktionen (differenzierbar):
+  \[
+  \begin{aligned}
+  \text{arcosh}'(y) &= \frac{1}{\sqrt{y^2 - 1}} \quad y > 1 \\
+  \text{arsinh}'(y) &= \frac{1}{\sqrt{y^2 + 1}} \quad y \in \mathbb{R} \\
+  \text{artanh}'(y) &= \frac{1}{1 - y^2} \quad |y| < 1
+  \end{aligned}
+  \]
+\end{itemize}
+
+
+\textbf{Trigonometrische Ableitungen:}
+\begin{itemize}
+  \item \(\tan': \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right) \to \mathbb{R}, \quad \tan'(x) = \frac{1}{\cos^2(x)}\)
+\end{itemize}
+
+\textbf{Satz (stetige Diff'barkeit eines Limes):}  
+\[
+f_m \xrightarrow{\text{gl.}} f,\quad f_m' \xrightarrow{\text{gl.}} g
+\quad\Rightarrow\quad f \in C^1(U, \mathbb{R}^p),\; f' = g
+\]
+
+
 \textbf{Satz (Umkehrsatz):}  
 \(f: I \to J\) diff'bar, \(f' \ne 0\)  
 \(\Rightarrow\)
@@ -854,6 +897,61 @@ Ableiten bei \(x_0\) ist eine lineare Abbildung \(T(f) := f'(x_0)\)
   \]
 \end{example}
 
+\textbf{Kurvendiskussion Extremstellen (sehr sehr simpel dargestellt):}
+\begin{itemize}
+  \item[1.] Ableitungen: \( f',\; f'',\; f''' \)
+  \item[2.] Symmetrie:
+    \begin{itemize}
+      \item \( f(-x) = -f(x) \) ⇒ punktsym. zum Ursprung
+      \item \( f(-x) = f(x) \) ⇒ achsensym. zur y-Achse
+    \end{itemize}
+  \item[3.] Verhalten \( x \to \pm\infty \):  
+    Nur führender Term von \( f(x) = a_n x^n + \ldots \) entscheidend:  
+    \( \lim_{x \to \pm\infty} f(x) = \lim_{x \to \pm\infty} a_n x^n \)
+  \item[4.] Nullstellen: \( f(x) = 0 \)
+  \item[5.] Extrema/Sattelpunkte: Löse \( f'(x) = 0 \). Prüfe:
+    \[
+    \begin{aligned}
+      f''(x_0) < 0 &\Rightarrow \text{ Maximum} \\
+      f''(x_0) > 0 &\Rightarrow \text{ Minimum} \\
+      f''(x_0) = 0,\; f'''(x_0) \neq 0 &\Rightarrow \text{ Sattelpunkt}
+    \end{aligned}
+    \]
+    Falls unklar: wechsle das Vorzeichen von \( f' \) um \( x_0 \)
+  \item[6.] Wendepunkte: Löse \( f''(x) = 0 \). Prüfe:
+    \[
+    f'''(x_0) \neq 0 \Rightarrow \text{ Wendepunkt}
+    \quad \text{oder} \quad
+    f'' \text{ wechselt Vorzeichen bei } x_0
+    \]
+  \item[7.] Graph skizzieren, Verhalten bei \( x \to \pm\infty \) beachten
+\end{itemize}
+
+
 % Integration___________________________________________________________________________________________________
 %%%%%%
 \subsection{6. Integration}
+
+\textbf{Riemann-Integral:}  
+Falls \( \lim_{n \to \infty} \Delta_n = 0 \) und  
+\[
+\lim_{n \to \infty} R_n = \lim_{n \to \infty} \sum_{k=1}^{n} \Delta_k f(\xi_k) =: \int_a^b f(x)\,dx
+\]
+existiert, dann ist \( f \) \textbf{Riemann-integrierbar} auf \( [a,b] \).
+
+\textbf{Bsp:} \( \displaystyle \int_0^1 (x^3 - 2x)\,dx \) mit Riemannsummen:  
+\( x_k = \frac{k}{n},\; \Delta x = \frac{1}{n},\; f(x_k) = \left( \frac{k}{n} \right)^3 - 2 \cdot \frac{k}{n} \)
+
+\[
+\int_0^1 f(x)\,dx \approx \sum_{k=1}^n \frac{1}{n} f\left(\frac{k}{n}\right)
+= \frac{1}{n} \sum_{k=1}^n \left( \frac{k^3}{n^3} - \frac{2k}{n} \right)
+= \frac{1}{n^4} \sum k^3 - \frac{2}{n^2} \sum k
+\]
+
+\[
+= \frac{1}{n^4} \left( \frac{n(n+1)}{2} \right)^2 - \frac{2}{n^2} \cdot \frac{n(n+1)}{2}
+\to \frac{1}{4} - 1 = -\frac{3}{4}
+\]
+
+\textit{Check:}  
+\( \int_0^1 (x^3 - 2x)\,dx = \left[ \frac{x^4}{4} - x^2 \right]_0^1 = -\frac{3}{4} \)
