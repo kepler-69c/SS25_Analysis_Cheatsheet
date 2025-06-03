@@ -145,6 +145,193 @@ Falls $n = p = q = 1$, dann ergibt das die klassische Kettenregel:
 (g \circ f)'(x_0) = g'(f(x_0)) f'(x_0)
 \]
 
+\textbf{Ableitungen: Summe, Skalarprodukt, Quotient}
+
+Seien $f, g$ differenzierbar in $x_0$:
+
+\begin{itemize}
+  \item \textbf{Summe:} $d(f + g)(x_0) = df(x_0) + dg(x_0)$
+  \item \textbf{Skalarprodukt:} $d(f \cdot g)(x_0) = g(x_0) \cdot df(x_0) + f(x_0) \cdot dg(x_0)$
+  \item \textbf{Quotient (für $p=1$):}
+  \[
+  d\left(\frac{f}{g}\right)(x_0) = \frac{g(x_0)df(x_0) - f(x_0)dg(x_0)}{(g(x_0))^2}
+  \]
+\end{itemize}
+
+\textbf{Richtungsableitung:} Sei $f : \mathbb{R}^n \to \mathbb{R}^p$, $x_0 \in \mathbb{R}^n$, $v \in \mathbb{R}^n$.\\
+Falls die Funktion $g : \mathbb{R} \to \mathbb{R}^p$, definiert durch
+\[
+g(t) := f(x_0 + tv)
+\]
+im Punkt $t=0$ differenzierbar ist, so definieren wir die Richtungsableitung von $f$ an der Stelle $x_0$ in Richtung $v$ durch
+\[
+d_v f(x_0) := D_v f(x_0) := g'(0) = 
+\begin{pmatrix}
+g_1'(0) \\
+\vdots \\
+g_p'(0)
+\end{pmatrix}
+\in \mathbb{R}^p.
+\]
+
+\textbf{Gradient:} Für $f : \mathbb{R}^n \to \mathbb{R}$ ist der Gradient von $f$ an der Stelle $x$ der Vektor
+\[
+\nabla f(x) := 
+\begin{pmatrix}
+D_1 f(x) \\
+\vdots \\
+D_n f(x)
+\end{pmatrix}
+=
+\begin{pmatrix}
+f_{x^1}(x) \\
+\vdots \\
+f_{x^n}(x)
+\end{pmatrix}.
+\]
+
+\textbf{Stetige partielle Differenzierbarkeit:}
+$f \in C^1(U, \mathbb{R}^p)$ bedeutet: $f$ ist partiell differenzierbar und alle $\partial_j f$ sind stetig.
+
+\textbf{Folge:} $f \in C^1(U, \mathbb{R}^p) \Rightarrow f$ ist überall total differenzierbar.
+
+\textbf{Gradientenfeld und Potential:}
+
+Ein \emph{Vektorfeld} ist eine Abbildung \( X : U \to \mathbb{R}^n \).
+
+Sei \( f \in C^1(U) \), dann ist das \emph{Gradientenfeld} von \( f \) gegeben durch:
+\[
+\nabla f(x) := 
+\begin{pmatrix}
+D_1 f(x) \\
+\vdots \\
+D_n f(x)
+\end{pmatrix}
+= 
+\begin{pmatrix}
+f_{x^1}(x) \\
+\vdots \\
+f_{x^n}(x)
+\end{pmatrix}
+.
+\]
+
+\textbf{Beispiel:} \( f(x) := \|x\|^2 \Rightarrow \nabla f(x) = 2x \)
+
+\textbf{Potential:} Ein \emph{Potential} für ein Vektorfeld \( X \) ist eine differenzierbare Funktion \( f : U \to \mathbb{R} \) mit:
+\[
+\nabla f = X.
+\]
+
+\textbf{Konservativ:} Das Vektorfeld \( X \) heisst \emph{konservativ}, falls es ein Potential \( f \) besitzt.
+
+\textbf{Wegintegral:}
+
+\textit{Definition:} Das Wegintegral eines Vektorfeldes \( X \) längs einer Kurve \( \gamma: [a, b] \to \mathbb{R}^n \) ist definiert durch:
+\[
+\int_\gamma X \cdot d\gamma := \int_a^b X(\gamma(t)) \cdot \dot{\gamma}(t) \, dt.
+\]
+
+\textbf{Beispiel:} Sei \( X(x, y) := (2x, 3y) \), und \(\gamma(t) := (t, t^2) \) für \( t \in [0, 1] \). Dann:
+\[
+X(\gamma(t)) = (2t, 3t^2), \quad \dot{\gamma}(t) = (1, 2t),
+\]
+\[
+X(\gamma(t)) \cdot \dot{\gamma}(t) = 2t \cdot 1 + 3t^2 \cdot 2t = 2t + 6t^3,
+\]
+\[
+\int_\gamma X \cdot d\gamma = \int_0^1 (2t + 6t^3) \, dt = \left[t^2 + \tfrac{3}{2}t^4\right]_0^1 = 1 + \tfrac{3}{2} = \tfrac{5}{2}.
+\]
+
+
+\textbf{Geschlossener Weg:} \\
+Ein Weg \( \gamma : [a, b] \to U \) heisst \textbf{geschlossen}, falls \( \gamma(a) = \gamma(b) \).
+
+\vspace{0.5em}
+\textbf{Satz: Charakterisierung konservativer Felder} \\
+Sei \( X : U \to \mathbb{R}^n \) stetig mit \( U \subset \mathbb{R}^n \) offen. Die folgenden Aussagen sind äquivalent:
+
+\begin{itemize}
+  \item[(a)] \( X \) ist konservativ.
+  \item[(b)] Das Wegintegral hängt nur von Endpunkten ab: Wenn \(\gamma_0, \gamma_1: [a,b] \to U\) stückweise stetig differenzierbar mit
+  \[
+    \gamma_0(a) = \gamma_1(a), \quad \gamma_0(b) = \gamma_1(b),
+  \]
+  dann gilt
+  \[
+    \int X \cdot d\gamma_0 = \int X \cdot d\gamma_1.
+  \]
+  \item[(c)] Für jeden geschlossenen, stetig differenzierbaren Weg \( \gamma \) gilt:
+  \[
+    \int_\gamma X \cdot d\gamma = 0.
+  \]
+\end{itemize}
+
+
+\textbf{Weg-Zusammenhang und Konvexität:}
+
+\begin{itemize}
+  \item \textbf{Weg-zusammenhängend:} \( S \subset \mathbb{R}^n \) heisst weg-zusammenhängend, wenn es für alle \( x_0, x_1 \in S \) einen stetigen Weg \( \gamma: [0,1] \to S \) mit
+  \[
+    \gamma(0) = x_0, \quad \gamma(1) = x_1
+  \]
+  gibt.
+  
+  \item \textbf{Konvex:} \( S \subset \mathbb{R}^n \) heisst konvex, wenn für alle \( x_0, x_1 \in S \) und \( t \in [0,1] \) gilt:
+  \[
+    (1 - t)x_0 + tx_1 \in S.
+  \]
+\end{itemize}
+
+\textbf{Konservativität überprüfen:}
+
+\begin{enumerate}
+  \item Wähle \( x_0 \in U \) und für jedes \( x \in U \) einen Weg \( \gamma_x \) von \( x_0 \) nach \( x \).
+  \item Definiere \( f(x) := \int_{\gamma_x} X \cdot d\gamma \).
+  \item Berechne \( \nabla f \).
+  \item Falls \( \nabla f = X \), ist \( X \) konservativ, \( f \) ist Potential.
+  \item Falls \( \nabla f \neq X \), ist \( X \) nicht konservativ.
+\end{enumerate}
+
+\textbf{Beispiel:}  
+\( X(x, y) := (2x, 2y) \), \( U := \mathbb{R}^2 \), \( x_0 := (0,0) \),  
+Wähle \( \gamma(t) = t(x,y) \Rightarrow \dot{\gamma}(t) = (x,y) \),  
+\[
+f(x, y) = \int_0^1 X(\gamma(t)) \cdot \dot{\gamma}(t)\,dt
+= \int_0^1 2t(x^2 + y^2)\,dt = (x^2 + y^2).
+\]  
+Dann ist \( \nabla f = (2x, 2y) = X \Rightarrow X \) ist konservativ.
+
+\textbf{Einfach zusammenhängend:}  
+\( S \subseteq \mathbb{R}^n \) ist einfach zusammenhängend, wenn jede stetige Schleife \( \gamma : S^1 \to S \) durch eine stetige Homotopie \( h : [0,1] \times S^1 \to S \) auf einen konstanten Weg deformierbar ist:
+\[
+h(0, y) = \gamma(y), \quad h(1, \cdot) \text{ konstant}.
+\]
+
+\textbf{Nicht-einfach zusammenhängend:}  
+\( U \subset \mathbb{R}^n \) offen ist \emph{nicht} einfach zusammenhängend, wenn es ein \( C^1 \)-Vektorfeld \( X \) gibt mit  
+\[
+\oint_\gamma X \cdot d\gamma \neq 0
+\]
+für einen geschlossenen stetig differenzierbaren Weg \( \gamma : [a,b] \to U \), obwohl \( X \) die Integrabilitätsbedingung erfüllt.
+
+\textbf{Rotation eines Vektorfeldes}
+
+\textit{Fall \(n=2\):} Für \( X = \begin{pmatrix} X^1 \\ X^2 \end{pmatrix} : U \subset \mathbb{R}^2 \to \mathbb{R}^2 \),
+\[
+\operatorname{rot} X := D_1 X^2 - D_2 X^1 = \frac{\partial X^2}{\partial x^1} - \frac{\partial X^1}{\partial x^2}
+\]
+\textit{Bsp:} \( X = \begin{pmatrix} -y \\ x \end{pmatrix} \Rightarrow \operatorname{rot} X = 1 + 1 = 2 \)
+
+\textit{Fall \(n=3\):} Für \( X = \begin{pmatrix} X^1 \\ X^2 \\ X^3 \end{pmatrix} : U \subset \mathbb{R}^3 \to \mathbb{R}^3 \),
+\[
+\vec{\operatorname{rot}} X := \nabla \times X = \begin{pmatrix}
+D_2 X^3 - D_3 X^2 \\
+D_3 X^1 - D_1 X^3 \\
+D_1 X^2 - D_2 X^1
+\end{pmatrix}
+\]
+\textit{Bsp:} \( X = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix} \Rightarrow \vec{\operatorname{rot}} X = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix} \)
 
 
 % Umkehrsatz, implizite Funktionen___________________________________________________________________________________________________
