@@ -750,27 +750,40 @@ Für nichtleere kompakte \( Q \subset \mathbb{R} \):
     \emph{Beispiel:} $f(x)=e^x$, $f^{-1}(y)=\ln y$, $(\ln y)' = 1/y$.
 \end{itemize}
 
-\begin{theorem}[Rolle]
-  Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$, und $f(a)=f(b)$. Dann $\exists \xi\in(a,b)$ mit $f'(\xi)=0$.
-\end{theorem}
+\textbf{Tangente:}  
+Wenn \(f\) in \(x_0\) differenzierbar ist, dann ist die Tangente an den Graphen von \(f\) im Punkt \((x_0, f(x_0))\)  
+die Gerade durch \((x_0, f(x_0))\) mit Steigung \(f'(x_0)\)
+
+\textbf{Linearität:}  
+\(T: V \to W\) ist linear \(\Leftrightarrow\)  
+\[
+T(av) = aT(v), \quad T(v + v') = T(v) + T(v')\quad \forall a \in \mathbb{R}, v, v' \in V
+\]
+
+\textbf{Affinität:}  
+\(T: V \to W\) ist affin \(\Leftrightarrow T = \text{linear} + \text{konstant}\)
+
+\textbf{Bsp:} \(f: \mathbb{R} \to \mathbb{R},\; f(x) = a_1 x + a_0\) ist affin
+
 \begin{theorem}[Mittelwertsatz von Lagrange]
   Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$. Dann $\exists\xi\in(a,b)$ mit
   \[
     f'(\xi) = \frac{f(b)-f(a)}{b-a}.
   \]
 \end{theorem}
-\begin{corollary}[Monotoniekriterium]
-  Ist $f$ differenzierbar auf $(a,b)$, dann
-  \[
-    f'(x) > 0\;\forall x\in(a,b)\;\Longleftrightarrow\;f\text{ streng monoton steigend}.
-  \]
-  Entsprechend für $f'(x)<0$ streng fallend.
-\end{corollary}
-\begin{example}
-  $f(x)=x^3 - 3x + 2$, $f'(x)=3x^2 - 3 = 3(x^2 - 1)$, Nullstellen $x=\pm1$.  
-  Auf $(-\infty,-1)$ und $(1,\infty)$ ist $f'>0$ (steigend), auf $(-1,1)$ ist $f'<0$ (fallend).  
-  Lokale Extrema: $f(-1)=4$ (Maximum), $f(1)=0$ (Minimum).
-\end{example}
+
+\textbf{Komponentenweise Differenzierbarkeit:}  
+\(f = (f_1, \dots, f_p): \mathbb{R}^n \to \mathbb{R}^p\)  
+\(f\) differenzierbar in \(x_0 \Leftrightarrow f_i\) diffbar in \(x_0\) für alle \(i\)  
+\[
+f'(x_0) = \begin{pmatrix} f_1'(x_0) \\ \vdots \\ f_p'(x_0) \end{pmatrix}
+\]
+
+\textbf{Bsp:} \(f(x) = \begin{pmatrix} x \\ e^x \end{pmatrix} \Rightarrow f'(x_0) = \begin{pmatrix} 1 \\ e^{x_0} \end{pmatrix}\)
+
+\textbf{Satz:}  
+Differenzierbarkeit \(\Rightarrow\) Stetigkeit
+
 
 \begin{theorem}[Bernoulli–de l’Hôpital]
   Seien $f,g$ differenzierbar in einer Umgebung von $a$ (ausgenommen evtl.\ bei $a$ selbst), und $f(a)=g(a)=0$ oder $\pm\infty$, $g'(x)\ne0$ auf dieser Umgebung (ausser evtl.\ bei $a$). Wenn
