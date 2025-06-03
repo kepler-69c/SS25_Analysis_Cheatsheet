@@ -400,6 +400,7 @@ f(0,0) = 1, \quad
 
 {\small
 \[
+\textstyle
 Hf(x) = \begin{pmatrix}
 \partial_{x_1}^2 f & \partial_{x_1}\partial_{x_2} f \\
 \partial_{x_2}\partial_{x_1} f & \partial_{x_2}^2 f
@@ -638,14 +639,14 @@ Für $f = X^1$ und $U = (a,b)$:
 \int_U \operatorname{div} X \, dx = \int_{\partial U} f \cdot \nu = f(b)\cdot 1 + f(a)\cdot (-1) = f(b) - f(a)
 \]
 
-\textbf{Folgerung aus Gauß (Satz 11.44):}
+\textbf{Folgerung aus Gauß:}
 
 Aus dem Gaußschen Integralsatz folgt:
 \[
 \int_U \operatorname{rot} X \, dx 
 = \int_U \nabla \cdot Y \, dx 
 = \int_{\partial U} Y \cdot \nu \, dA 
-= \int_{\partial U} \left( X^2 T^2 - X^1 (-T^1) \right) \, ds \quad \text{(wegen Beispiel 11.39)}
+= \int_{\partial U} \left( X^2 T^2 - X^1 (-T^1) \right) \, ds \quad 
 = \int_{\partial U} X \cdot T \, ds.
 \]
 
