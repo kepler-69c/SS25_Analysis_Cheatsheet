@@ -10,7 +10,7 @@ Konjunktion: $A\wedge B$.
 
 Disjunktion: $A\vee B$.  
 
-Implikation: $A\Rightarrow B$ (wahr, außer $A=T,B=F$).  
+Implikation: $A\Rightarrow B$ (wahr, ausser $A=T,B=F$).  
 
 Äquivalenz: $A\Leftrightarrow B$ ($A\Rightarrow B$ und $B\Rightarrow A$). 
 
@@ -25,6 +25,23 @@ Implikation: $A\Rightarrow B$ (wahr, außer $A=T,B=F$).
 \Bigl(P(0)\;\wedge\;\forall k:\,P(k)\Rightarrow P(k+1)\Bigr)\;\Rightarrow\;\forall n:P(n).
 \]
 
+\textbf{Satz:} \(\displaystyle \sum_{i=1}^n i = \frac{n(n+1)}{2} \quad \forall n \in \mathbb{N}_0\)
+
+\textbf{Induktion:}
+
+Für n = 0 gilt
+IA: \(n = 0\): \(0 = \frac{0(0+1)}{2}\;\checkmark\)
+
+Es sei $k \in \mathbb{N}$ beliebig, und es gelte
+
+IV: \(\sum_{i=1}^k i = \frac{k(k+1)}{2}\)
+
+Dann gilt die Aussage auch für k + 1:
+
+IS: \(\sum_{i=1}^{k+1} i = \sum_{i=1}^k i + (k+1)
+= \frac{k(k+1)}{2} + (k+1)
+= \frac{(k+1)(k+2)}{2}\;\checkmark\)
+
 % Zahlen und Vektoren___________________________________________________________________________________________________
 %%%%%%
 \subsection{2. Zahlen und Vektoren}
@@ -33,7 +50,7 @@ Implikation: $A\Rightarrow B$ (wahr, außer $A=T,B=F$).
 \textbf{Supremum/Infimum:} Für $A\subset\R$ beschränkt:  
 \[
 \sup A:=\text{kleinstes obere Schranke},\quad
-\inf A:=\text{größte untere Schranke}.
+\inf A:=\text{grösste untere Schranke}.
 \]
 \textbf{Komplexe Zahlen:} $z=a+ib,\;a,b\in\R,\;i^2=-1$.  
 Betrag: $|z|=\sqrt{a^2+b^2}$.  
@@ -398,6 +415,143 @@ Funktion & Potenzreihe & Konvergenzradius \\
 
 \textbf{f ist stetig in } D, falls f in jedem Punkt von D stetig ist.
 
+\textbf{Beispiele stetiger/unstetiger Funktionen:}
+\begin{itemize}
+  \item[(ii)] \textbf{Identität:} $\mathrm{id}_S(x) = x$ ist stetig für $S \subset \mathbb{R}^n$  
+  Beweis: $\|\mathrm{id}(x) - \mathrm{id}(x_0)\| = \|x - x_0\| \leq \delta = \varepsilon$
+
+  \item[(iii)] \textbf{Projektion:} $\mathrm{pr}_i : \mathbb{R}^n \to \mathbb{R},\; \mathrm{pr}_i(x) = x_i$ ist stetig
+
+  \item[(iv)] \textbf{Indikatorfunktion:}  
+    \[
+      \chi_A(x) = \begin{cases}
+        1, & x \in A \\
+        0, & \text{sonst}
+      \end{cases}
+    \quad\text{nicht stetig an Randpunkten von } A
+    \]
+    Bsp: $\chi_{\{0\}}$ unstetig in $x = 0$  
+    \[
+      \delta = \tfrac{1}{2},\quad |x - 0| \leq \delta \Rightarrow
+      |\chi_{\{0\}}(x) - \chi_{\{0\}}(0)| = 1 > \varepsilon = \tfrac{1}{2}
+    \]
+
+  \item[(v)] \textbf{Dirichlet-Funktion:} $\chi_{\mathbb{Q}}:\mathbb{R} \to \mathbb{R}$,  
+    \[
+      \chi_{\mathbb{Q}}(x) = \begin{cases}
+        1, & x \in \mathbb{Q} \\
+        0, & \text{sonst}
+      \end{cases}
+    \]
+    ist in keinem Punkt stetig (Sprungfunktion aller Dichten).
+\end{itemize}
+
+\textbf{Stetigkeit \& Rechenoperationen:}
+\begin{itemize}
+  \item Addition, Subtraktion, Multiplikation, Division (ausser bei Nenner \(=0\)) komplexer Zahlen sind stetig.
+
+  \item Seien \(f,g : S \subset \mathbb{R}^n \to \mathbb{C}\), \(a \in \mathbb{C}\), \(x_0 \in S\), \(f,g\) stetig in \(x_0\). Dann sind auch stetig in \(x_0\):  
+  \[
+  f + g,\quad a \cdot f,\quad f \cdot g
+  \]
+  Falls \(g(x_0) \ne 0\): auch \(\frac{f}{g}\) stetig in \(x_0\) (auf \(S \cap \{x \mid g(x) \ne 0\}\)).
+
+  \item Seien \(f = (f_1, \dots, f_{n'}) : S \to \mathbb{R}^{n'}\). Dann ist  
+  \[
+  f \text{ stetig in } x_0 \iff \text{alle } f_i \text{ stetig in } x_0.
+  \]
+\end{itemize}
+
+\textbf{Stetigkeit von Polynomen:}
+\begin{itemize}
+  \item[(i)] \(f(x) = a_1 x + a_0\) mit \(a_0,a_1 \in \mathbb{R}\) ist stetig (Summe konst. und linearer Funktion).
+  \item[(ii)] Jedes reelle Polynom \(p: \mathbb{R} \to \mathbb{R}\) ist stetig.
+  \item[(iii)] Jedes komplexe Polynom \(p: \mathbb{C} \to \mathbb{C}\) ist stetig.
+\end{itemize}
+
+\textbf{Wurzelfunktion stetig:}  
+Für alle \(n \in \mathbb{N}\) ist \(\sqrt[n]{\cdot} : [0,\infty) \to [0,\infty)\) stetig.
+
+\textbf{Durch Potenzfunktion definierte Funktion ist stetig:}  
+Funktion \(f(z) = \sum_{k=0}^\infty c_k z^k\) ist auf der Konvergenzscheibe stetig.
+
+\textbf{Bemerkung:}  
+Die \textit{Konvergenzscheibe} ist die grösste offene Kreisscheibe, auf der die Potenzreihe konvergiert. Auf ihr ist \(f\) stetig.
+
+\textbf{Innerer Punkt \& Inneres:}  
+\(x \in S\) ist innerer Punkt \(\Leftrightarrow \exists r>0: B_r^n(x) \subseteq S\)
+
+\[
+\text{Int}(S) := \{x \in S \mid x \text{ innerer Punkt von } S\}
+\]
+
+\textbf{Vereinigung:} \(\displaystyle \bigcup S := \{x \mid \exists s \in S: x \in s\}\)
+
+\textbf{Durchschnitt:} \(\displaystyle \bigcap S := \{x \mid \forall s \in S: x \in s\}\quad (S \ne \emptyset)\)
+
+
+\textbf{Eigenschaften offener Mengen:}
+\begin{itemize}
+  \item[(i)] \(\emptyset\) und \(\mathbb{R}^n\) sind offen
+  \item[(ii)] Endlicher Durchschnitt offener Mengen ist offen
+  \item[(iii)] Beliebige Vereinigung offener Mengen ist offen
+\end{itemize}
+
+
+\textbf{Offenheit:}  
+\(S \subset \mathbb{R}^n\) ist offen \(\Leftrightarrow S = \text{Int}(S)\)
+
+\textbf{Merkmale:}
+\begin{itemize}
+  \item \(\text{Int}(S) \subseteq S\)
+  \item offen \(\Leftrightarrow\) gleich ihrem Inneren
+\end{itemize}
+
+\textbf{Abgeschlossenheit:}  
+\(A \subset \mathbb{R}^n\) ist abgeschlossen \(\Leftrightarrow \mathbb{R}^n \setminus A\) ist offen.
+
+\textbf{Eigenschaften abgeschlossener Mengen:}
+\begin{itemize}
+  \item[(i)] \(\emptyset,\, \mathbb{R}^n\) sind abgeschlossen
+  \item[(ii)] Endliche Vereinigungen abgeschlossener Mengen sind abgeschlossen
+  \item[(iii)] Beliebige Durchschnitte abgeschlossener Mengen sind abgeschlossen
+\end{itemize}
+
+\textbf{Folgenkriterium:}  
+\(S \subset \mathbb{R}^n\) ist abgeschlossen \(\Leftrightarrow\)  
+\(\forall (x_k) \subset S,\; x_k \to x \Rightarrow x \in S\)
+
+\textbf{Abschluss:}  
+\[
+\overline{S} := \bigcap \{A \subset \mathbb{R}^n \mid A \text{ abgeschlossen, } S \subset A\}
+\]
+
+\textbf{Eigenschaften:}
+\begin{itemize}
+  \item \(\overline{S} \supseteq S\)
+  \item \(\overline{S}\) ist abgeschlossen
+  \item \(\overline{S}\) ist kleinste abgeschlossene Menge mit \(S \subseteq \overline{S}\)
+  \item \(S\) ist genau dann abgeschlossen, wenn \(S = \overline{S}\)
+\end{itemize}
+
+\textbf{Satz (Inneres \& Abschluss):}
+\begin{itemize}
+  \item[(i)] \(\displaystyle \text{Int}(S) = \bigcup_{U \subseteq S,\; U \text{ offen}} U\)
+  \item[(ii)] \(\displaystyle \overline{S} = \{x \in \mathbb{R}^n \mid \exists (x_k) \subset S,\; x_k \to x\}\)
+\end{itemize}
+
+\textbf{Rand:}  
+\(\partial S := \overline{S} \setminus \text{Int}(S)\)
+
+\textbf{Rand ist abgeschlossen:}  
+\(\partial S = \overline{S} \setminus \text{Int}(S) = \overline{S} \cap (\mathbb{R}^n \setminus S)\)
+
+\textbf{Satz (Randcharakterisierung):}  
+\[
+\partial S = \{x \in \mathbb{R}^n \mid \forall r > 0:\; B_r(x) \cap S \ne \emptyset \;\land\; B_r(x) \cap (\mathbb{R}^n \setminus S) \ne \emptyset \}
+\]
+
+
 \textbf{Grenzwert in } $x_0$:  
 \[
 \lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
@@ -419,6 +573,76 @@ f stetig in \( x_0 \),\; g stetig in \( f(x_0) \)
 \Rightarrow g \circ f \text{ stetig in } x_0
 \]
 
+\textbf{Monotonie:}
+\begin{itemize}
+  \item \(f\) monoton wachsend \(\Leftrightarrow x \le x' \Rightarrow f(x) \le f(x')\)
+  \item \(f\) streng monoton wachsend \(\Leftrightarrow x < x' \Rightarrow f(x) < f(x')\)
+\end{itemize}
+
+\textbf{Strenge Monotonie $\Rightarrow$ Injektivität}
+
+\textbf{k-te Wurzel:}
+\begin{itemize}
+  \item \(k\) gerade: \(\sqrt[k]{\cdot} := p_k^{-1}: [0, \infty) \to [0, \infty)\)
+  \item \(k\) ungerade: \(\sqrt[k]{\cdot} := p_k^{-1}: \mathbb{R} \to \mathbb{R}\)
+\end{itemize}
+
+\textbf{Logarithmus:}  
+\(\log := \exp^{-1} : (0,\infty) \to \mathbb{R}\)
+
+\textbf{Produktregel:}  
+\(\log(xy) = \log(x) + \log(y)\) für \(x, y > 0\)
+
+\textbf{Satz (Stetige Umkehrfunktion):}  
+\(f: K \to Y\) stetig und bijektiv,\; \(K\) kompakt  
+\(\Rightarrow f^{-1}: Y \to K\) ist stetig
+
+\textbf{Satz (Bild und Umkehrfunktion bei Monotonie):}  
+Sei \(f: I \to \mathbb{R}\) stetig auf Intervall \(I\), dann gilt:
+\begin{itemize}
+  \item[(i)] \(\text{Bild}(f)\) ist ein Intervall
+  \item[(ii)] Falls \(f\) streng monoton wachsend, dann ist \(f^{-1}: \text{im}(f) \to I\) stetig und streng monoton wachsend
+\end{itemize}
+
+\textbf{Satz (stetige Umkehrfunktion bei offenem \(U\)):}  
+Sei \(f: U \to \mathbb{R}^p\) stetig und injektiv, \(U \subset \mathbb{R}^n\) offen, \(U \ne \emptyset\), \(n \ge p\)
+
+\begin{itemize}
+  \item[(i)] \(n = p\)
+  \item[(ii)] \(f(U)\) ist offen in \(\mathbb{R}^n\)
+  \item[(iii)] \(f^{-1}: \text{im}(f) \to U\) ist stetig
+\end{itemize}
+
+
+\textbf{Punktweise Konvergenz:}  
+\(f_m \to f\) punktweise auf \(X\)  
+\(\Leftrightarrow \forall x \in X:\; f_m(x) \to f(x)\)
+
+Die Folge $(f_m)_{m \in \mathbb{N}_0}$ konvergiert punktweise gegen $f$ auf $X$ genau dann, wenn gilt:
+\[
+\forall x \in X\; \forall \varepsilon > 0\; \exists m_0 \in \mathbb{N}_0\; \forall m \ge m_0:\; \|f_m(x) - f(x)\| \le \varepsilon
+\]
+
+\textbf{Gleichmässige Konvergenz:}  
+\(f_m \to f\) gleichmässig auf \(X\)  
+\(\Leftrightarrow \sup_{x \in X} \|f_m(x) - f(x)\| \to 0\)
+
+Äquivalent:  
+\(\forall \varepsilon > 0\; \exists m_0 \in \mathbb{N}:\; \forall m \ge m_0,\; \forall x \in X:\; \|f_m(x) - f(x)\| \le \varepsilon\)
+
+\textbf{Bsp:} \(f_m(x) = x^m\) auf \([0,1] \Rightarrow\) punktweise Konvergenz gegen  
+\[
+f(x) = \begin{cases}
+0, & x < 1 \\
+1, & x = 1
+\end{cases}
+\quad \text{(nicht gleichmässig)}
+\]
+
+\textbf{Satz (Stetigkeit bei gleichmässiger Konvergenz):}  
+\(f_m\) stetig,\; \(f_m \to f\) gleichmässig \(\Rightarrow f\) ist stetig
+
+
 \textbf{Grenzwert:}  
 \[
 \lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
@@ -429,14 +653,40 @@ f stetig in \( x_0 \),\; g stetig in \( f(x_0) \)
 \textbf{Schreibweise:}  
 \( \lim\limits_{x \to x_0} f(x) = y_0 \)
 
+\textbf{Beschränktheit:}  
+\(A \subset \mathbb{R}^n\) ist beschränkt \(\Leftrightarrow \exists R > 0, x_0 \in \mathbb{R}^n:\; A \subset \overline{B}_R(x_0)\)
+
 \textbf{Kompaktheit:}  
-\( A \subset \mathbb{R}^n \) ist kompakt  
 \[
-\Leftrightarrow \text{abgeschlossen und beschränkt}
+A \subset \mathbb{R}^n \text{ ist kompakt } \Leftrightarrow A \text{ ist abgeschlossen und beschränkt}
 \]
 \[
 \Leftrightarrow \text{jede Folge in } A \text{ hat konvergente Teilfolge in } A
 \]
+
+\textbf{Satz:}  
+\(K \subset \mathbb{R}^n\) kompakt,\; \(f: K \to \mathbb{R}^p\) stetig  
+\(\Rightarrow f(K)\) ist kompakt
+
+\textbf{Korollar (Maximum/Minimum auf Kompaktum):}  
+\(K \subset \mathbb{R}^n\) kompakt, \(K \ne \emptyset\), \(f: K \to \mathbb{R}\) stetig  
+\(\Rightarrow f\) hat Maximum und Minimum auf \(K\)
+
+\textbf{Satz (Stetigkeit via Urbild):}  
+Für \(f: X \to Y\) sind äquivalent:
+\begin{itemize}
+  \item[(a)] \(f\) ist stetig
+  \item[(b)] \(f^{-1}(V)\) ist relativ offen in \(X\) für jede relativ offene Menge \(V \subseteq Y\)
+  \item[(c)] \(f^{-1}(B)\) ist relativ abgeschlossen in \(X\) für jede relativ abgeschlossene Menge \(B \subseteq Y\)
+\end{itemize}
+
+\textbf{Umgebung:}  
+\(U \subseteq X\) ist Umgebung von \(x_0 \in X\)  
+\(\Leftrightarrow \exists r > 0: B_r^n(x_0) \cap X \subseteq U\)
+
+\textbf{Lemma:}  
+\(Q \subset \mathbb{R}\) kompakt, \(Q \ne \emptyset\)  
+\(\Rightarrow \inf Q, \sup Q \in Q\)
 
 \textbf{Satz:}  
 Ist \( f: [a,b] \to \mathbb{R} \) stetig, dann ist \( f \) beschränkt.
@@ -467,13 +717,13 @@ Für nichtleere kompakte \( Q \subset \mathbb{R} \):
 % Differentialrechnung auf R___________________________________________________________________________________________________
 %%%%%%
 \subsection{5. Differentialrechnung auf R}
-
-\begin{definition}[Ableitung]
+\textbf{Ableitung}
+\begin{definition}
   Sei $f:I\subset\R\to\R$, $x_0\in I$. Die Ableitung von $f$ in $x_0$ ist
   \[
     f'(x_0) = \lim_{h\to0} \frac{f(x_0 + h) - f(x_0)}{h},
   \]
-  falls der Grenzwert existiert. Dann heißt $f$ differenzierbar in $x_0$.
+  falls der Grenzwert existiert. Dann heisst $f$ differenzierbar in $x_0$.
 \end{definition}
 \begin{itemize}
   \item Differenzierbarkeit impliziert Stetigkeit in $x_0$.
@@ -523,7 +773,7 @@ Für nichtleere kompakte \( Q \subset \mathbb{R} \):
 \end{example}
 
 \begin{theorem}[Bernoulli–de l’Hôpital]
-  Seien $f,g$ differenzierbar in einer Umgebung von $a$ (ausgenommen evtl.\ bei $a$ selbst), und $f(a)=g(a)=0$ oder $\pm\infty$, $g'(x)\ne0$ auf dieser Umgebung (außer evtl.\ bei $a$). Wenn
+  Seien $f,g$ differenzierbar in einer Umgebung von $a$ (ausgenommen evtl.\ bei $a$ selbst), und $f(a)=g(a)=0$ oder $\pm\infty$, $g'(x)\ne0$ auf dieser Umgebung (ausser evtl.\ bei $a$). Wenn
   \[
     \lim_{x\to a} \frac{f'(x)}{g'(x)} = L \in \R \cup \{\pm\infty\},
   \]
