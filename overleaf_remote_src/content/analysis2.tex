@@ -333,6 +333,155 @@ D_1 X^2 - D_2 X^1
 \]
 \textit{Bsp:} \( X = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix} \Rightarrow \vec{\operatorname{rot}} X = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix} \)
 
+\textbf{Vertauschen partieller Ableitungen:}
+
+\textit{Nicht immer gültig!} Ein Gegenbeispiel:
+\[
+f(x,y) := \begin{cases}
+\frac{xy(x^2 - y^2)}{x^2 + y^2}, & (x,y)\neq(0,0) \\
+0, & \text{sonst}
+\end{cases}
+\Rightarrow \partial_2 \partial_1 f(0,0) \ne \partial_1 \partial_2 f(0,0)
+\]
+
+\textbf{Korollar:} Falls \(f \in C^m\), dürfen partielle Ableitungen bis zur Ordnung \(m\) vertauscht werden:
+\[
+D_2 D_3 D_1 f = D_3 D_2 D_1 f
+\]
+
+\textit{Anwendung:} Ist \(X \in C^1\) konservativ, so gilt die Integrabilitätsbedingung:
+\[
+D_i X^j = D_j X^i \quad \forall\, i,j \in \{1,\dots,n\}
+\]
+
+\textbf{Taylorpolynom:} Taylorpolynom $T_{f,x_0}^m(x)$ von $f: \mathbb{R}^n \to \mathbb{R}$ um $x_0$ bis Ordnung $m$:
+
+\[
+T_{f,x_0}^m(x) := \sum_{k=0}^{m} \frac{1}{k!} \sum_{i_1,\dots,i_k=1}^{n} D_{i_k} \dots D_{i_1}f(x_0) \prod_{j=1}^{k}(x - x_0)_{i_j}
+\]
+
+\textit{Beispiel:} $f(x,y) = e^x\cos(y)$, $x_0 = (0,0)$, $m = 2$:
+
+\[
+T_{f,(0,0)}^2(x,y) = 1 + x - \frac{y^2}{2}
+\]
+
+\textbf{Taylorpolynom mit Multi-Index:}
+\[
+T^m_{f,x_0}(x) = \sum_{k=0}^m \sum_{\alpha \in \mathbb{N}_0^n, |\alpha| = k} \frac{1}{\alpha!} D^\alpha f(x_0) (x - x_0)^\alpha
+\]
+
+\textbf{Lemma (Multi-Index und partielle Ableitungen):}
+\[
+\sum_{i_1, \dots, i_k=1}^n D_{i_k} \dots D_{i_1} f(x_0) \prod_{j=1}^k v_{i_j} 
+= \sum_{\alpha \in \mathbb{N}_0^n, |\alpha| = k} \binom{k}{\alpha} D^\alpha f(x_0) v^\alpha
+\]
+
+\textbf{Beispiel (Taylorpolynom bis Ordnung 2):}
+
+Gegeben sei \( f(x_1, x_2) = e^{x_1 + x_2} \), Entwicklungspunkt \( x_0 = (0, 0) \).
+
+Dann gilt:
+\[
+T^2_{f, x_0}(x) 
+= f(0, 0) 
++ \nabla f(0,0) \cdot x 
++ \frac{1}{2} x^\top Hf(0,0) x
+\]
+
+Berechnung der Terme:
+
+\[
+f(0,0) = 1, \quad 
+\nabla f(x) = \begin{pmatrix} \partial_{x_1} f \\ \partial_{x_2} f \end{pmatrix} 
+= \begin{pmatrix} e^{x_1+x_2} \\ e^{x_1+x_2} \end{pmatrix} 
+\Rightarrow \nabla f(0,0) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\]
+
+\[
+Hf(x) = \begin{pmatrix}
+\partial_{x_1}^2 f & \partial_{x_1}\partial_{x_2} f \\
+\partial_{x_2}\partial_{x_1} f & \partial_{x_2}^2 f
+\end{pmatrix}
+= e^{x_1+x_2} \begin{pmatrix}
+1 & 1 \\
+1 & 1
+\end{pmatrix}
+\Rightarrow Hf(0,0) = \begin{pmatrix}
+1 & 1 \\
+1 & 1
+\end{pmatrix}
+\]
+
+Einsetzen ergibt:
+\[
+T^2_{f, x_0}(x) 
+= 1 + x_1 + x_2 + \frac{1}{2} \left( x_1^2 + 2x_1x_2 + x_2^2 \right)
+\]
+
+\textbf{Definition (Definitheit einer Matrix).} Eine symmetrische Matrix \( A \in \mathbb{R}^{n \times n} \) heißt
+\begin{itemize}
+  \item \textit{positiv definit}, falls \( x^\top A x > 0 \) für alle \( x \in \mathbb{R}^n \setminus \{0\} \),
+  \item \textit{negativ definit}, falls \( x^\top A x < 0 \) für alle \( x \in \mathbb{R}^n \setminus \{0\} \),
+  \item \textit{positiv semidefinit}, falls \( x^\top A x \geq 0 \) für alle \( x \in \mathbb{R}^n \),
+  \item \textit{negativ semidefinit}, falls \( x^\top A x \leq 0 \) für alle \( x \in \mathbb{R}^n \),
+  \item \textit{indefinit}, falls weder positiv noch negativ (semi)definit.
+\end{itemize}
+
+
+\textbf{Kritischer Punkt:} $x_0$ heißt \textit{kritisch}, falls $df(x_0) = 0$ bzw. $\nabla f(x_0) = 0$.
+
+\textbf{Hesse-Matrix:} Für $f \in C^2(U)$ ist die Hesse-Matrix definiert als
+\[
+\text{Hess}_f(x_0) := \left(D_i D_j f(x_0)\right)_{i,j=1}^n
+\]
+{\small
+\[
+\mathbf{H}_f(x) :=
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2}(x) & \frac{\partial^2 f}{\partial x_1 \partial x_2}(x) & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(x) \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \frac{\partial^2 f}{\partial x_2^2}(x) & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1}(x) & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) & \cdots & \frac{\partial^2 f}{\partial x_n^2}(x)
+\end{pmatrix}
+\]
+}
+
+
+Für $f \in C^2$ ist $\text{Hess}_f$ symmetrisch:
+\[
+\text{Hess}_f(x_0)_{ij} = \text{Hess}_f(x_0)_{ji}
+\]
+
+\textbf{Spezialfall $n = 1$:} Dann ist
+\[
+\text{Hess}_f(x_0) = f''(x_0)
+\]
+
+\textbf{Beispiel:} Sei $f(x_1, x_2) = x_1^2 + x_1 x_2 + x_2^2$, dann ist
+\[
+\text{Hess}_f(x_0) = 
+\begin{pmatrix}
+2 & 1 \\
+1 & 2
+\end{pmatrix}
+\]
+
+\textbf{Hinweis zur Anwendung:}
+- Lokales Minimum bei $x_0$, falls $\nabla f(x_0) = 0$ und $\text{Hess}_f(x_0)$ positiv definit.
+- Lokales Maximum bei $x_0$, falls $\nabla f(x_0) = 0$ und $\text{Hess}_f(x_0)$ negativ definit.
+
+\textbf{Bsp:} \( f(x, y) = x^2 + y^2 - 4x - 6y + 13 \)
+
+\begin{itemize}
+  \item \( \nabla f = (2x - 4,\, 2y - 6) \Rightarrow (x, y) = (2, 3) \)
+  \item \( \text{Hess}_f =
+  \begin{pmatrix}
+  2 & 0 \\
+  0 & 2
+  \end{pmatrix} \Rightarrow \) positiv definit
+  \item \( \Rightarrow \) striktes lokales Minimum bei \( (2, 3) \)
+\end{itemize}
 
 % Umkehrsatz, implizite Funktionen___________________________________________________________________________________________________
 %%%%%%
@@ -347,6 +496,22 @@ D_1 X^2 - D_2 X^1
 %%%%%%
 \subsection{11. Vektorfelder und die 
 Sätze von Green, Stokes und Gauss}
+
+\textbf{Kurvenintegral einer Funktion:}
+
+Sei $C$ eine stückweise glatt parametrisierte Kurve $x_j : I_j \to \mathbb{R}^n$, dann ist das Kurvenintegral definiert durch
+\[
+\int_C f \, ds := \sum_j \int_{I_j} f(x_j(t)) \, \lVert \dot{x}_j(t) \rVert \, dt.
+\]
+
+\textbf{Heuristische Interpretation:}
+
+\begin{itemize}
+  \item $ds = \lVert \dot{x}_j(t_0) \rVert dt$ ist die Länge eines infinitesimalen Kurvenstücks.
+  \item $\int_C f \, ds \approx \sum f(x_j(t_0)) \cdot \text{Länge}$ ist wie ein gewichteter Flächeninhalt.
+  \item Geometrisch ist $\int_C f \, ds$ die Fläche unter dem Graphen von $f$ über der Kurve $C$.
+\end{itemize}
+
 
 % Weiteres___________________________________________________________________________________________________
 %%%%%%
