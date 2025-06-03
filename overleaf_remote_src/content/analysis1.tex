@@ -765,13 +765,6 @@ T(av) = aT(v), \quad T(v + v') = T(v) + T(v')\quad \forall a \in \mathbb{R}, v, 
 
 \textbf{Bsp:} \(f: \mathbb{R} \to \mathbb{R},\; f(x) = a_1 x + a_0\) ist affin
 
-\begin{theorem}[Mittelwertsatz von Lagrange]
-  Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$. Dann $\exists\xi\in(a,b)$ mit
-  \[
-    f'(\xi) = \frac{f(b)-f(a)}{b-a}.
-  \]
-\end{theorem}
-
 \textbf{Komponentenweise Differenzierbarkeit:}  
 \(f = (f_1, \dots, f_p): \mathbb{R}^n \to \mathbb{R}^p\)  
 \(f\) differenzierbar in \(x_0 \Leftrightarrow f_i\) diffbar in \(x_0\) für alle \(i\)  
@@ -784,8 +777,34 @@ f'(x_0) = \begin{pmatrix} f_1'(x_0) \\ \vdots \\ f_p'(x_0) \end{pmatrix}
 \textbf{Satz:}  
 Differenzierbarkeit \(\Rightarrow\) Stetigkeit
 
+\textbf{Ableitung ist linear:}
+\begin{itemize}
+  \item[(i)] \( (a f)'(x_0) = a f'(x_0) \) \quad (Skalarmultiplikation)
+  \item[(ii)] \( (f + g)'(x_0) = f'(x_0) + g'(x_0) \) \quad (Additivität)
+\end{itemize}
+Ableiten bei \(x_0\) ist eine lineare Abbildung \(T(f) := f'(x_0)\)
 
-\begin{theorem}[Bernoulli–de l’Hôpital]
+\textbf{Mittelwertsatz von Lagrange:}
+\begin{theorem}
+  Sei $f:[a,b]\to\R$ stetig auf $[a,b]$, differenzierbar auf $(a,b)$. Dann $\exists\xi\in(a,b)$ mit
+  \[
+    f'(\xi) = \frac{f(b)-f(a)}{b-a}.
+  \]
+\end{theorem}
+
+\textbf{Mittelwertsatz:}  
+\(f'(x_0)\) entspricht der Steigung der Sekante durch \((a, f(a))\) und \((b, f(b))\)
+
+\textbf{Korollar 5.15 (Folgerung aus \(f'\)):}
+\begin{itemize}
+  \item[(i)] \(f' = 0 \Rightarrow f\) konstant
+  \item[(ii)] \(f' \ge 0 \Rightarrow f\) monoton wachsend
+  \item[(iii)] \(f' > 0 \Rightarrow f\) streng monoton wachsend
+\end{itemize}
+
+
+\textbf{Bernoulli–de l’Hôpital:}
+\begin{theorem}
   Seien $f,g$ differenzierbar in einer Umgebung von $a$ (ausgenommen evtl.\ bei $a$ selbst), und $f(a)=g(a)=0$ oder $\pm\infty$, $g'(x)\ne0$ auf dieser Umgebung (ausser evtl.\ bei $a$). Wenn
   \[
     \lim_{x\to a} \frac{f'(x)}{g'(x)} = L \in \R \cup \{\pm\infty\},
@@ -803,7 +822,20 @@ Differenzierbarkeit \(\Rightarrow\) Stetigkeit
   \]
 \end{example}
 
-\begin{theorem}[Taylor, 1-D]
+\textbf{Satz (Umkehrsatz):}  
+\(f: I \to J\) diff'bar, \(f' \ne 0\)  
+\(\Rightarrow\)
+\begin{itemize}
+  \item[(i)] \(\text{im}(f) = J\) (offenes Intervall)
+  \item[(ii)] \(f\) ist bijektiv
+  \item[(iii)] \(f^{-1}: J \to I\) ist diff'bar mit  
+    \[
+    (f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}, \quad \forall y \in J
+    \]
+\end{itemize}
+
+\textbf{Taylor, 1-D:}
+\begin{theorem}
   Sei $f$ $(n+1)$-mal differenzierbar im Intervall um $x_0$. Dann gilt für $x$ in einer Umgebung:
   \[
     f(x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k 
