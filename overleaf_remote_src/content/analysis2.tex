@@ -82,6 +82,71 @@ bilden eine basis des komplexen vektorraums
 %%%%%%
 \subsection{8. Differentialrechnung im R}
 
+\textbf{Vektorwertige Ableitung:}
+
+Sei $g = \begin{pmatrix} g_1 \\ \vdots \\ g_p \end{pmatrix} : U \to \mathbb{R}^p$ eine Funktion mit $U \subset \mathbb{R}$ offen. 
+
+\vspace{2pt}
+
+Falls $g_i$ in $y_0$ differenzierbar $\forall i$, dann ist $g$ in $y_0$ differenzierbar mit
+\[
+g'(y_0) := \begin{pmatrix} g_1'(y_0) \\ \vdots \\ g_p'(y_0) \end{pmatrix}.
+\]
+
+\textbf{Partielle Ableitung \& Jacobi-Matrix:}
+
+Sei $f : U \subset \mathbb{R}^n \to \mathbb{R}^p$. Dann ist die \emph{partielle Ableitung} von $f$ nach $x^j$ an der Stelle $x_0$ definiert durch:
+\[
+f_{x^j}(x_0) := \frac{\partial f}{\partial x^j}(x_0) := g'(x_0^j),
+\]
+falls $g(y) := f(x_0^1, \dots, x_0^{j-1}, y, x_0^{j+1}, \dots, x_0^n)$ in $y = x_0^j$ differenzierbar ist.
+
+\vspace{2pt}
+
+Falls $f$ an $x_0$ nach allen Variablen partiell differenzierbar ist, ist die \textbf{Jacobi-Matrix} gegeben durch:
+\[
+J_f(x_0) := \begin{pmatrix}
+f_{x^1}^1(x_0) & \cdots & f_{x^n}^1(x_0) \\
+\vdots & \ddots & \vdots \\
+f_{x^1}^p(x_0) & \cdots & f_{x^n}^p(x_0)
+\end{pmatrix}.
+\]
+
+\textbf{Totale Differenzierbarkeit \& Jacobi-Matrix:}
+
+$f : \mathbb{R}^n \to \mathbb{R}^p$ ist in $x_0$ \emph{differenzierbar} $\Leftrightarrow$ es existiert eine lineare Abbildung $A$ mit
+\[
+\lim_{x \to x_0} \frac{\|f(x) - f(x_0) - A(x - x_0)\|}{\|x - x_0\|} = 0.
+\]
+Dann ist $A = J_f(x_0)$ die \textbf{Jacobi-Matrix} von $f$ in $x_0$:
+\[
+A = J_f(x_0) : \mathbb{R}^n \to \mathbb{R}^p.
+\]
+
+\textbf{Folge:} Total differenzierbar $\Rightarrow$ partiell differenzierbar.
+
+\textbf{Totale Ableitung:}  
+$Df(x_0) := df(x_0)$ ist die beste lineare Approximation von $f$ in $x_0$  
+\[
+Df(x_0) = J_f(x_0) = \left( \frac{\partial f^i}{\partial x^j}(x_0) \right)
+\]
+
+\textbf{Kettenregel:} Wenn $f$ in $x_0$ und $g$ in $f(x_0)$ differenzierbar sind, dann ist auch $g \circ f$ in $x_0$ differenzierbar mit
+\[
+d(g \circ f)(x_0) = dg(f(x_0)) \circ (df(x_0)) = dg(f(x_0)) \cdot df(x_0)
+\]
+
+\textbf{Kettenregel (Jacobi-Matrizen):} Für differenzierbare $f,g$ gilt:
+\[
+J_{g \circ f}(x_0) = J_g(f(x_0)) \cdot J_f(x_0)
+\]
+Falls $n = p = q = 1$, dann ergibt das die klassische Kettenregel:
+\[
+(g \circ f)'(x_0) = g'(f(x_0)) f'(x_0)
+\]
+
+
+
 % Umkehrsatz, implizite Funktionen___________________________________________________________________________________________________
 %%%%%%
 \subsection{9. Umkehrsatz, implizite Funktionen, Untermannigfaltigkeit, Tangentialraum}
