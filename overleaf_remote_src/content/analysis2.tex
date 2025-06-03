@@ -398,6 +398,7 @@ f(0,0) = 1, \quad
 \Rightarrow \nabla f(0,0) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 \]
 
+{\small
 \[
 Hf(x) = \begin{pmatrix}
 \partial_{x_1}^2 f & \partial_{x_1}\partial_{x_2} f \\
@@ -412,6 +413,7 @@ Hf(x) = \begin{pmatrix}
 1 & 1
 \end{pmatrix}
 \]
+}
 
 Einsetzen ergibt:
 \[
@@ -511,6 +513,141 @@ Sei $C$ eine stückweise glatt parametrisierte Kurve $x_j : I_j \to \mathbb{R}^n
   \item $\int_C f \, ds \approx \sum f(x_j(t_0)) \cdot \text{Länge}$ ist wie ein gewichteter Flächeninhalt.
   \item Geometrisch ist $\int_C f \, ds$ die Fläche unter dem Graphen von $f$ über der Kurve $C$.
 \end{itemize}
+
+\textbf{Satz (Green):}
+Sei $U \subseteq \mathbb{R}^2$ ein beschränktes $C^1$-Gebiet und $X$ ein $C^1$-Vektorfeld auf $\overline{U}$. Dann gilt:
+\[
+\int_U \mathrm{rot}\, X \, dx = \int_{\partial U} X \cdot T \, ds.
+\]
+
+\textbf{Beispiel:}
+
+Sei $X(x,y) = (-y, x)$ und $U$ die Einheitskreisscheibe. Dann ist
+\[
+\mathrm{rot}\, X = \frac{\partial x}{\partial x} - \frac{\partial (-y)}{\partial y} = 1 + 1 = 2.
+\]
+Flächenintegral:
+\[
+\int_U \mathrm{rot}\, X \, dx = \int_U 2 \, dx = 2 \cdot \text{Fläche}(U) = 2 \cdot \pi = 2\pi.
+\]
+Kurvenintegral über $\partial U$ (Einheitskreis, $T$ tangential):
+\[
+\int_{\partial U} X \cdot T \, ds = \int_0^{2\pi} 1 \cdot 1 \, d\varphi = 2\pi.
+\]
+Beide Seiten stimmen überein: Green'scher Satz verifiziert.
+
+\textbf{Untermannigfaltigkeiten mit Rand}
+
+Sei $M \subseteq \mathbb{R}^n$ eine $C^k$-Untermannigfaltigkeit der Dimension $d$ mit Rand.
+
+\begin{itemize}
+  \item \textbf{(i)} $M$ lokal diffeomorph zu $V \subseteq \mathbb{R}_+^d := \mathbb{R}^{d-1} \times [0,\infty)$.
+  \item \textbf{(ii)} Eine Randparametrisierung $\psi: V \to \mathbb{R}^n$ mit $\psi$ injektiv und $C^k$-Immersion.
+  \item \textbf{(iii)} Der Rand $\partial M$ ist wohldefiniert (unabhängig von Parametrisierung).
+  \item \textbf{(iv)} $x_0 \in \partial M$ gdw. $\psi^{-1}(x_0) \in \mathbb{R}^{d-1} \times \{0\}$.
+  \item \textbf{(v)} Für $M$ abgeschlossen, $d < n$: topologischer Rand $\ne$ intrinsischer Rand.
+  \item \textbf{(vi)} Randdimension ist eindeutig bestimmt.
+  \item \textbf{(vii)} $\psi$ darf $\partial M$ nicht doppelt überdecken.
+  \item \textbf{(viii)} Bei Diffeomorphismen $f: (0,\infty) \to \mathbb{R}$ kann man alternative Parametrisierung $\chi(s,t) := (s, f(t))$ nutzen.
+\end{itemize}
+
+\textbf{Fluss durch eine Hyperfläche}
+
+\textbf{Def.:} Sei $X$ ein Vektorfeld und $M$ eine orientierte $(n{-}1)$-dimensionale Fläche mit Normalenvektor $\nu$. Der \emph{Fluss} durch $M$ ist gegeben durch:
+\[
+\int_{M,\nu} X \cdot dA := \int_M X \cdot \nu \, dA.
+\]
+
+\textbf{Bemerkungen:}
+\begin{itemize}
+  \item (i) Heuristisch: $dA = \nu dA$, also:
+  \[
+  \int_{M,\nu} X \cdot dA = \sum_{z \in M} X \cdot dA.
+  \]
+  \item (ii) Für $n = 3$: Dies ist das (Oberflächen-)Flächenintegral von $X$ durch $M$.
+  \item (iii) Motivation: In der Strömungsmechanik beschreibt der Fluss die Menge an „Material“, die pro Zeiteinheit durch $M$ strömt.
+\end{itemize}
+
+\textbf{Satz (Stokes):} \\
+\[
+\text{Für ein } C^1\text{-Vektorfeld } X : U \to \mathbb{R}^3, \text{ orientierte Fläche } \Sigma \subset \mathbb{R}^3: 
+\]
+\[
+\int_{\Sigma, \nu} (\nabla \times X) \cdot dA 
+= \int_{\Sigma} (\nabla \times X) \cdot \nu \, dA 
+= \int_{\partial \Sigma, T} X \cdot ds 
+= \int_{\partial \Sigma} X \cdot T \, ds
+\]
+\[
+\textbf{Beispiel:} \text{ Sei } \Sigma := \{x \in S^2 \mid x_3 \geq a \}, \quad \nu(x) := x, \, a > 0. \\
+\text{Gegeben:}
+\]
+\[
+X(x) := \frac{1}{2}(-x_2, x_1, 0), \quad T(x) := \frac{1}{\sqrt{1 - a^2}}(-x_2, x_1, 0)
+\]
+
+\text{Dann:}
+\[
+\nabla \times X = (0, 0, 1) = e_3
+\]
+
+$\text{Fluss durch } \Sigma: $
+\[
+\int_{\Sigma, \nu} e_3 \cdot dA 
+= \int_{\partial \Sigma} X \cdot T \, ds 
+= \int_{S^1} \frac{1}{\sqrt{1-a^2}} ((-x_2)^2 + x_1^2) \, ds 
+= \frac{1}{\sqrt{1 - a^2}} \int_{S^1} (x_1^2 + x_2^2) \, ds
+\]
+
+$\text{Auf Kreisradius } \sqrt{1 - a^2}: $
+\[
+= \frac{1}{\sqrt{1 - a^2}} (1 - a^2) \cdot 2\pi\sqrt{1 - a^2}
+= 2\pi (1 - a^2)
+\]
+
+\textbf{Definition: Koorientierung eines Randes}
+
+Sei $U \subset \mathbb{R}^n$ ein $C^1$-Gebiet und $g \in C^1(U, \mathbb{R})$ mit $\partial U = \{x \in U : g(x) = 0\}$, $\nabla g(x_0) \neq 0$.  
+Dann ist die nach außen zeigende \textit{koorientierte} Einheitsnormalenabbildung
+\[
+\nu: \partial U \to \mathbb{R}^n, \quad \nu(x) := \frac{\nabla g(x)}{\|\nabla g(x)\|}.
+\]
+
+\textbf{Eigenschaft:}  
+Die Koorientierung definiert eine Orientierung für $\partial U$ konsistent mit $U$.
+
+\textbf{Satz von Gauß (Divergenzsatz)}
+
+Sei $U \subseteq \mathbb{R}^n$ ein beschränktes $C^1$-Gebiet und $X \in C^1(\overline{U}, \mathbb{R}^n)$. Dann gilt:
+
+\[
+\int_U \operatorname{div} X \, dx = \int_{\partial U, \nu} X \cdot dA = \int_{\partial U} X \cdot \nu \, dA
+\]
+
+Dabei ist $\nu$ das nach außen weisende Einheitsnormalenfeld auf $\partial U$.
+
+\textbf{Beispiel ($n=1$)}
+Für $f = X^1$ und $U = (a,b)$:
+
+\[
+\int_a^b f'(x)\, dx = f(b) - f(a)
+\]
+
+\textbf{Begründung:} Mit $X = f$ ist $\operatorname{div} X = f'$ und
+\[
+\int_U \operatorname{div} X \, dx = \int_{\partial U} f \cdot \nu = f(b)\cdot 1 + f(a)\cdot (-1) = f(b) - f(a)
+\]
+
+\textbf{Folgerung aus Gauß (Satz 11.44):}
+
+Aus dem Gaußschen Integralsatz folgt:
+\[
+\int_U \operatorname{rot} X \, dx 
+= \int_U \nabla \cdot Y \, dx 
+= \int_{\partial U} Y \cdot \nu \, dA 
+= \int_{\partial U} \left( X^2 T^2 - X^1 (-T^1) \right) \, ds \quad \text{(wegen Beispiel 11.39)}
+= \int_{\partial U} X \cdot T \, ds.
+\]
 
 
 % Weiteres___________________________________________________________________________________________________
