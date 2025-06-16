@@ -321,7 +321,7 @@ für einen geschlossenen stetig differenzierbaren Weg \( \gamma : [a,b] \to U \)
 \[
 \operatorname{rot} X := D_1 X^2 - D_2 X^1 = \frac{\partial X^2}{\partial x^1} - \frac{\partial X^1}{\partial x^2}
 \]
-\textit{Bsp:} \( X = \begin{pmatrix} -y \\ x \end{pmatrix} \Rightarrow \operatorname{rot} X = 1 + 1 = 2 \)
+\textit{Beispiel:} \( X = \begin{pmatrix} -y \\ x \end{pmatrix} \Rightarrow \operatorname{rot} X = 1 + 1 = 2 \)
 
 \textit{Fall \(n=3\):} Für \( X = \begin{pmatrix} X^1 \\ X^2 \\ X^3 \end{pmatrix} : U \subset \mathbb{R}^3 \to \mathbb{R}^3 \),
 \[
@@ -331,11 +331,11 @@ D_3 X^1 - D_1 X^3 \\
 D_1 X^2 - D_2 X^1
 \end{pmatrix}
 \]
-\textit{Bsp:} \( X = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix} \Rightarrow \vec{\operatorname{rot}} X = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix} \)
+\textit{Beispiel:} \( X = \begin{pmatrix} -y \\ x \\ 0 \end{pmatrix} \Rightarrow \vec{\operatorname{rot}} X = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix} \)
 
 \textbf{Vertauschen partieller Ableitungen:}
 
-\textit{Nicht immer gültig!} Ein Gegenbeispiel:
+\textit{Nicht immer gültig!} Ein GegenBsp:
 \[
 f(x,y) := \begin{cases}
 \frac{xy(x^2 - y^2)}{x^2 + y^2}, & (x,y)\neq(0,0) \\
@@ -398,8 +398,8 @@ f(0,0) = 1, \quad
 \Rightarrow \nabla f(0,0) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 \]
 
-{\small
-\[
+\scalebox{0.9}{$
+
 \textstyle
 Hf(x) = \begin{pmatrix}
 \partial_{x_1}^2 f & \partial_{x_1}\partial_{x_2} f \\
@@ -413,8 +413,7 @@ Hf(x) = \begin{pmatrix}
 1 & 1 \\
 1 & 1
 \end{pmatrix}
-\]
-}
+$}
 
 Einsetzen ergibt:
 \[
@@ -474,7 +473,7 @@ Für $f \in C^2$ ist $\text{Hess}_f$ symmetrisch:
 - Lokales Minimum bei $x_0$, falls $\nabla f(x_0) = 0$ und $\text{Hess}_f(x_0)$ positiv definit.
 - Lokales Maximum bei $x_0$, falls $\nabla f(x_0) = 0$ und $\text{Hess}_f(x_0)$ negativ definit.
 
-\textbf{Bsp:} \( f(x, y) = x^2 + y^2 - 4x - 6y + 13 \)
+\textbf{Beispiel:} \( f(x, y) = x^2 + y^2 - 4x - 6y + 13 \)
 
 \begin{itemize}
   \item \( \nabla f = (2x - 4,\, 2y - 6) \Rightarrow (x, y) = (2, 3) \)
@@ -489,6 +488,8 @@ Für $f \in C^2$ ist $\text{Hess}_f$ symmetrisch:
 % Umkehrsatz, implizite Funktionen___________________________________________________________________________________________________
 %%%%%%
 \subsection{9. Umkehrsatz, implizite Funktionen, Untermannigfaltigkeit, Tangentialraum}
+
+
 
 % Mehrdimensionale Riemann-integration,Satz von Fubini über wiederholte Integration, Jordan-Mass, Substitutionsregel für mehrdimensionale Integrale___________________________________________________________________________________________________
 %%%%%%
@@ -625,7 +626,7 @@ Sei $U \subseteq \mathbb{R}^n$ ein beschränktes $C^1$-Gebiet und $X \in C^1(\ov
 \int_U \operatorname{div} X \, dx = \int_{\partial U, \nu} X \cdot dA = \int_{\partial U} X \cdot \nu \, dA
 \]
 
-Dabei ist $\nu$ das nach außen weisende Einheitsnormalenfeld auf $\partial U$.
+Dabei ist $\nu$ das nach aussen weisende Einheitsnormalenfeld auf $\partial U$.
 
 \textbf{Beispiel ($n=1$)}
 Für $f = X^1$ und $U = (a,b)$:
@@ -642,15 +643,157 @@ Für $f = X^1$ und $U = (a,b)$:
 \textbf{Folgerung aus Gauß:}
 
 Aus dem Gaußschen Integralsatz folgt:
-\[
-\int_U \operatorname{rot} X \, dx 
-= \int_U \nabla \cdot Y \, dx 
-= \int_{\partial U} Y \cdot \nu \, dA 
-= \int_{\partial U} \left( X^2 T^2 - X^1 (-T^1) \right) \, ds \quad 
-= \int_{\partial U} X \cdot T \, ds.
-\]
+\scalebox{0.8}{$
+\int_U \operatorname{rot} X\,dx = \int_U \nabla \cdot Y\,dx = 
+\int_{\partial U} Y \cdot \nu\,dA = 
+\int_{\partial U} (X^2 T^2 - X^1 (-T^1))\,ds = 
+\int_{\partial U} X \cdot T\,ds
+$}
 
 
 % Weiteres___________________________________________________________________________________________________
 %%%%%%
-\subsection{12. Zusatz (Integraltabellen, Bilder etc.}
+\subsection{12. Zusatz (Integraltabellen, Bilder etc.)}
+
+\textbf{Ansätze für inhomogene DGLs:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|
+  >{\centering\arraybackslash}m{4cm}|
+  >{\centering\arraybackslash}m{4cm}|
+}
+\hline
+$g(t)$ & $y_{\text{part}}(t)$ \\
+\hline
+$C$ & $A$ \\
+$Ce^{at}$ & $Ae^{at}$ \\
+$C\cos(bt)$ & $A\sin(bt) + B\cos(bt)$ \\
+$C\sin(bt)$ & $A\sin(bt) + B\cos(bt)$ \\
+$C\cos(bt)e^{at}$ & $(A\sin(bt) + B\cos(bt))e^{at}$ \\
+$C\sin(bt)e^{at}$ & $(A\sin(bt) + B\cos(bt))e^{at}$ \\
+$k_nt^n + \cdots + k_0$ & $K_nt^n + \cdots + K_0$ \\
+$(k_nt^n + \cdots + k_0)e^{at}$ & $(K_nt^n + \cdots + K_0)e^{at}$ \\
+$(k_nt^n + \cdots + k_0)\cos(bt)$ &
+$\begin{aligned}
+&(K_nt^n + \cdots)\sin(bt)\\
+&+ (M_nt^n + \cdots)\cos(bt)
+\end{aligned}$ \\
+$(k_nt^n + \cdots + k_0)\sin(bt)$ &
+$\begin{aligned}
+&(K_nt^n + \cdots)\sin(bt)\\
+&+ (M_nt^n + \cdots)\cos(bt)
+\end{aligned}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\textbf{Parametrisierungen}
+
+\vspace{0.5em}
+
+\textbf{Kreis:} $\Phi : (0, \infty) \times [0, 2\pi) \to \mathbb{R}^2$
+\[
+\Phi(r, \varphi) = \begin{pmatrix} r\cos\varphi \\ r\sin\varphi \end{pmatrix}, \quad
+\det(d\Phi) = r, \quad
+d\mu = r\,dr\,d\varphi
+\]
+
+\textbf{Ellipse:} $\Phi : (0, \infty) \times [0, 2\pi) \to \mathbb{R}^2$
+\[
+\Phi(r, \varphi) = \begin{pmatrix} ra\cos\varphi \\ rb\sin\varphi \end{pmatrix}, \quad
+\det(d\Phi) = abr, \quad
+d\mu = abr\,dr\,d\varphi
+\]
+
+\textbf{Zylinder:} $\Phi : (0, \infty) \times [0, 2\pi) \times \mathbb{R} \to \mathbb{R}^3$
+\[
+\Phi(r, \varphi, h) = \begin{pmatrix} r\cos\varphi \\ r\sin\varphi \\ h \end{pmatrix}, \quad
+\det(d\Phi) = r, \quad
+d\mu = r\,dr\,d\varphi\,dh
+\]
+
+\textbf{Kugel:} $\Phi : (0, \infty) \times [0, 2\pi) \times [0, \pi] \to \mathbb{R}^3$
+\[
+\Phi(r, \theta, \varphi) =
+\begin{pmatrix}
+r\cos\varphi\sin\theta \\
+r\sin\varphi\sin\theta \\
+r\cos\theta
+\end{pmatrix}, \quad
+\det(d\Phi) = r^2\sin\theta, \quad
+d\mu = r^2\sin\theta\,dr\,d\varphi\,d\theta
+\]
+
+\textbf{Ellipsoid:} $\Phi : (0, \infty) \times [0, 2\pi) \times [0, \pi] \to \mathbb{R}^3$
+\[
+\Phi(r, \theta, \varphi) =
+\begin{pmatrix}
+ar\cos\varphi\sin\theta \\
+br\sin\varphi\sin\theta \\
+cr\cos\theta
+\end{pmatrix}, \quad
+\det(d\Phi) = abcr^2\sin\theta, \quad
+d\mu = abcr^2\sin\theta\,dr\,d\varphi\,d\theta
+\]
+
+\vspace{1em}
+\noindent
+{\textbullet\ Für den Rand des Körpers muss jeweils die Parametrisierung mit einem konstanten \( r \) genommen werden.}
+
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{@{}ll@{}}
+\multicolumn{2}{c}{\textbf{Punktmengen}} \\
+\textbf{Gerade} &
+$M = \left\{(x,y) \in \mathbb{R}^2 \mid y = mx + q \right\}$ \\
+\textbf{Kreis} &
+$M = \left\{(x,y) \in \mathbb{R}^2 \mid (x - x_0)^2 + (y - y_0)^2 = r^2 \right\}$ \\
+\textbf{Ellipse} &
+$M = \left\{(x,y) \in \mathbb{R}^2 \mid \frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} = 1 \right\}$ \\
+\textbf{Hyperbel} &
+$M = \left\{(x,y) \in \mathbb{R}^2 \mid \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \right\}$ \\
+\textbf{Kugel} &
+$M = \left\{(x,y,z) \in \mathbb{R}^3 \mid (x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2 \right\}$ \\
+\textbf{Ellipsoid} &
+$M = \left\{(x,y,z) \in \mathbb{R}^3 \mid \frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} + \frac{(z - z_0)^2}{c^2} = 1 \right\}$ \\
+\textbf{Kegel} &
+$M = \left\{(x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 = \frac{r^2}{h}(h - z) \right\}$ \\
+\textbf{Zylinder} &
+$M = \left\{(x,y,z) \in \mathbb{R}^3 \mid (x - x_0)^2 + (y - y_0)^2 = r^2 \right\}$ \\
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+f'(x) & f(x) & \int f(x)\,dx \\
+\hline
+0 & c & cx \\
+nx^{n-1} & x^n & \frac{x^{n+1}}{n+1} \\
+-\frac{1}{x^2} & \frac{1}{x} & \ln|x| \\
+\frac{n}{x^{n+1}} & \frac{1}{x^n} & \frac{-1}{(n-1)x^{n-1}} \\
+\frac{1}{2\sqrt{x}} & \sqrt{x} & \frac{2}{3}x^{3/2} \\
+ae^{ax} & e^{ax} & \frac{1}{a}e^{ax} \\
+\frac{1}{x} & \ln|x| & x(\ln x - 1) \\
+\cos(x) & \sin(x) & -\cos(x) \\
+-\sin(x) & \cos(x) & \sin(x) \\
+\frac{1}{\cos^2(x)} & \tan(x) & -\ln|\cos(x)| \\
+\cosh(x) & \sinh(x) & \cosh(x) \\
+\sinh(x) & \cosh(x) & \sinh(x) \\
+\frac{1}{\cosh^2(x)} & \tanh(x) & \ln(\cosh(x)) \\
+\frac{1}{1+x^2} & \arctan(x) & x\arctan(x) - \frac{\ln(x^2+1)}{2}\\
+\frac{1}{\sqrt{1 - x^2}} & \arcsin(x) & x \arcsin(x) + \sqrt{1-x^2}\\
+-\frac{1}{\sqrt{1 - x^2}} & \arccos(x) & x \arccos(x) - \sqrt{1-x^2}\\
+\frac{1}{\sqrt{1 + x^2}} & \text{arcsinh}(x) & x \text{arcsinh}(x) - \sqrt{x^2+1} \\
+\frac{1}{\sqrt{x^2 - 1}} & \text{arccosh}(x) & x \text{arccosh}(x) - \sqrt{x^2-1} \\
+\frac{1}{m((x+k)^2 + m^2)} & \frac{1}{(x+k)^2 + m^2} & \frac{1}{m} \arctan\left(\frac{x + k}{m}\right) \\
+\hline
+\end{tabular}
+\end{center}
