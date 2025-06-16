@@ -601,11 +601,11 @@ $f(x) = 3x - 2 \quad \Rightarrow \lim_{x \to a} f(x) = 3a - 2$
 \begin{tabularx}{\linewidth}{l 
   >{\centering\arraybackslash}p{0.5cm} 
   >{\centering\arraybackslash}p{0.1cm} 
-  >{\centering\arraybackslash}p{0.2cm} 
-  >{\centering\arraybackslash}p{0.2cm} 
-  >{\centering\arraybackslash}p{0.3cm} 
-  >{\centering\arraybackslash}p{0.3cm} 
-  >{\centering\arraybackslash}p{0.3cm}}
+  >{\centering\arraybackslash}p{0.35cm} 
+  >{\centering\arraybackslash}p{0.35cm} 
+  >{\centering\arraybackslash}p{0.35cm} 
+  >{\centering\arraybackslash}p{0.35cm} 
+  >{\centering\arraybackslash}p{0.35cm}}
 \toprule
 & $B_r(x_0)$ & $\emptyset$ & $a$ & $\mathbb{R}$ & $(a,b]$ & $[a,\infty)$ & $(a,\infty)$ \\
 \midrule
@@ -682,7 +682,10 @@ Sei \(f: U \to \mathbb{R}^p\) stetig und injektiv, \(U \subset \mathbb{R}^n\) of
 
 Die Folge $(f_m)_{m \in \mathbb{N}_0}$ konvergiert punktweise gegen $f$ auf $X$ genau dann, wenn gilt:
 \[
-\forall x \in X\; \forall \varepsilon > 0\; \exists m_0 \in \mathbb{N}_0\; \forall m \ge m_0:\; \|f_m(x) - f(x)\| \le \varepsilon
+\begin{aligned}
+\forall x \in X,\; \forall \varepsilon > 0,\; \exists m_0 \in \mathbb{N}_0:\; \\
+\forall m \ge m_0:\quad \|f_m(x) - f(x)\| \le \varepsilon
+\end{aligned}
 \]
 
 \textbf{Gleichmässige Konvergenz:}  
@@ -709,7 +712,8 @@ f(x) = \begin{cases}
 \[
 \lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
 \forall \varepsilon > 0\; \exists \delta > 0:\;
-\|x - x_0\| \leq \delta \Rightarrow \|f(x) - y_0\| \leq \varepsilon
+\|x - x_0\| \leq \delta \Rightarrow \\
+\|f(x) - y_0\| \leq \varepsilon
 \]
 
 \textbf{Schreibweise:}  
@@ -792,7 +796,7 @@ Für nichtleere kompakte \( Q \subset \mathbb{R} \):
   \item \textbf{Regeln:}
     \[
       (f+g)' = f' + g', \quad 
-      (f\cdot g)' = f'\,g + f\,g', \quad
+      (f\cdot g)' = f'\,g + f\,g', \quad \\
       \Bigl(\tfrac{f}{g}\Bigr)' = \frac{f'\,g - f\,g'}{g^2}.
     \]
   \item \textbf{Kettenregel:} Ist $g$ in $x_0$ differenzierbar, $f$ in $g(x_0)$ differenzierbar, so
@@ -819,7 +823,7 @@ die Gerade durch \((x_0, f(x_0))\) mit Steigung \(f'(x_0)\)
 \textbf{Linearität:}  
 \(T: V \to W\) ist linear \(\Leftrightarrow\)  
 \[
-T(av) = aT(v), \quad T(v + v') = T(v) + T(v')\quad \forall a \in \mathbb{R}, v, v' \in V
+T(av) = aT(v), T(v + v') = T(v) + T(v')\quad \forall a \in \mathbb{R}, v, v' \in V
 \]
 
 \textbf{Affinität:}  
@@ -949,7 +953,7 @@ f_m \xrightarrow{\text{gl.}} f,\quad f_m' \xrightarrow{\text{gl.}} g
   wobei das Restglied in Lagrange-Form
   \[
     R_{n+1}(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\,(x - x_0)^{n+1}
-    \quad\text{für ein }\xi\text{ zwischen }x_0\text{ und }x.
+    % \quad\text{für ein }\xi\text{ zwischen }x_0\text{ und }x.
   \]
 \end{theorem}
 \begin{example}
@@ -982,9 +986,9 @@ f_m \xrightarrow{\text{gl.}} f,\quad f_m' \xrightarrow{\text{gl.}} g
     Falls unklar: wechsle das Vorzeichen von \( f' \) um \( x_0 \)
   \item[6.] Wendepunkte: Löse \( f''(x) = 0 \). Prüfe:
     \[
-    f'''(x_0) \neq 0 \Rightarrow \text{ Wendepunkt}
-    \quad \text{oder} \quad
-    f'' \text{ wechselt Vorzeichen bei } x_0
+    f'''(x_0) \neq 0 \Rightarrow \text{ WP}
+    \quad \text{or} \quad
+    f'' \text{ wechs. Vorz. bei } x_0
     \]
   \item[7.] Graph skizzieren, Verhalten bei \( x \to \pm\infty \) beachten
 \end{itemize}
@@ -1006,7 +1010,7 @@ existiert, dann ist \( f \) \textbf{Riemann-integrierbar} auf \( [a,b] \).
 
 \[
 \int_0^1 f(x)\,dx \approx \sum_{k=1}^n \frac{1}{n} f\left(\frac{k}{n}\right)
-= \frac{1}{n} \sum_{k=1}^n \left( \frac{k^3}{n^3} - \frac{2k}{n} \right)
+= \frac{1}{n} \sum_{k=1}^n \left( \frac{k^3}{n^3} - \frac{2k}{n} \right) \\
 = \frac{1}{n^4} \sum k^3 - \frac{2}{n^2} \sum k
 \]
 
@@ -1058,10 +1062,10 @@ existiert, dann ist \( f \) \textbf{Riemann-integrierbar} auf \( [a,b] \).
 \int_b^a f := - \int_a^b f
 \]
 
-\textbf{Gebietsadditivität (auch bei vertauschten Grenzen):}
+\textbf{Gebietsadditivität (auch bei vert. Grenzen):}
 \[
 \int_a^c f = \int_a^b f + \int_b^c f
-\quad \text{auch für } a, b, c \in \mathbb{R}, \text{ in der richtigen Reihenfolge.}
+\quad \text{auch für } a, b, c \in \mathbb{R}, \text{ in der richt. Reihenf.}
 \]
 
 \textbf{Rechts-/Linksdifferenzierbarkeit:}
