@@ -67,17 +67,17 @@ Sei \( f : X \to Y \) eine Abbildung.
 \textbf{N, Z, Q, R, C.}  
 \textbf{Reelle Zahlen:} vollständiges geordnetes Feld.  
 \textbf{Supremum/Infimum:} Für $A\subset\R$ beschränkt:  
-\[
-\sup A:=\text{kleinstes obere Schranke},\quad
+\begin{align*}
+\sup A:=\text{kleinstes obere Schranke},\\
 \inf A:=\text{grösste untere Schranke}.
-\]
+\end{align*}
 \textbf{Komplexe Zahlen:} $z=a+ib,\;a,b\in\R,\;i^2=-1$.  
 Betrag: $|z|=\sqrt{a^2+b^2}$.  
 Konjugierte: $\overline z=a-ib$.  
-\[
-z_1+z_2=(a_1+a_2)+i(b_1+b_2),\quad
-z_1z_2=(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1).
-\]
+\begin{align*}
+z_1 + z_2 &= (a_1 + a_2) + i(b_1 + b_2) \\
+z_1 z_2 &= (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)
+\end{align*}
 Polarform: $z=r e^{i\varphi},\;r=|z|,\;\varphi=\arg z$.
 
 % Folgen und Reihen ___________________________________________________________________________________________________
@@ -162,30 +162,31 @@ Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
 \]
 
 \textbf{Cauchy-Folge:}  
-\[
-(x_n) \subset \mathbb{R} \text{ ist Cauchy } \Leftrightarrow  
-\forall \varepsilon > 0\; \exists N \in \mathbb{N}:\; |x_n - x_m| < \varepsilon \; \forall m,n \geq N
-\]
+$(x_n) \subset \mathbb{R}$ ist Cauchy  
+$\Leftrightarrow \forall \varepsilon > 0\; \exists N \in \mathbb{N}:\; \forall m,n \geq N:\; |x_n - x_m| < \varepsilon$
+
 \textbf{Satz:}  
-\[
+$
 (x_n) \text{ konvergiert } \Leftrightarrow \text{Cauchy-Folge}
-\]
+$
 
 \textbf{Unendliche Grenzwerte:}  
-\[
+
+$
 \lim_{n \to \infty} x_n = \infty \Leftrightarrow  
 \forall M > 0\; \exists N \in \mathbb{N}:\; x_n > M\; \forall n \geq N
-\]
-\[
+$
+
+$
 \lim_{n \to \infty} x_n = -\infty \Leftrightarrow  
 \forall M > 0\; \exists N \in \mathbb{N}:\; x_n < -M\; \forall n \geq N
-\]
+$
 
 \textbf{Reihe }
-\[
-\sum_{k=0}^\infty a_k \text{ konvergiert} \Leftrightarrow 
+$
+\sum_{k=0}^\infty a_k \text{ konvergiert} \Leftrightarrow \newline
 \lim_{n \to \infty} s_n = A \in \mathbb{R},\quad s_n := \sum_{k=0}^n a_k
-\]
+$
 \[
 \textbf{Wenn } \sum a_k \text{ konvergiert, dann } \lim a_k = 0
 \]
@@ -196,42 +197,47 @@ Für eine beschränkte Folge \( (x_n) \subset \mathbb{R} \) gilt:
 \sum_{k=N}^\infty a_k \text{ konvergiert } \quad \forall N \in \mathbb{N}
 \]
 \footnotesize
-\begin{tabular}{|c|c|c|}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.4cm}|
+                >{\centering\arraybackslash}p{1.7cm}|
+                >{\centering\arraybackslash}p{2.4cm}|}
 \hline
 \textbf{Objekt} & \textbf{Bedingung} & \textbf{Konvergenz / Wert} \\
 \hline
 $a_k = \frac{1}{k}$ 
   & — 
-  & konvergent, $\displaystyle\lim_{k\to\infty}a_k = 0$ \\
+  & konvergent, $\lim\limits_{k\to\infty} a_k = 0$ \\
 \hline
 $a_k = z^k$ 
   & $|z|<1$ 
-  & konvergent, $\displaystyle\lim_{k\to\infty}z^k = 0$ \\
-  & $|z|\ge1$ 
+  & konvergent, $\lim\limits_{k\to\infty} z^k = 0$ \\
+  & $|z|\ge 1$ 
   & divergent \\
 \hline
-$\displaystyle \sum_{k=1}^\infty \frac{1}{k}$ 
+$\sum\limits_{k=1}^\infty \frac{1}{k}$ 
   & — 
   & divergent (harmonisch) \\
 \hline
-$\displaystyle \sum_{k=1}^\infty \frac{1}{k^\alpha}$ 
+$\sum\limits_{k=1}^\infty \frac{1}{k^\alpha}$ 
   & $\alpha > 1$ 
   & konvergent \\
   & $\alpha \le 1$ 
   & divergent \\
 \hline
-$\displaystyle \sum_{k=0}^\infty z^k$ 
+$\sum\limits_{k=0}^\infty z^k$ 
   & $|z|<1$ 
-  & konvergent, $\displaystyle\sum_{k=0}^\infty z^k \;=\;\frac{1}{1-z}$ \\
-  & $|z|\ge1$ 
+  & konvergent, $\sum\limits_{k=0}^\infty z^k = \frac{1}{1-z}$ \\
+  & $|z|\ge 1$ 
   & divergent \\
 \hline
-$\displaystyle \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k}$ 
+$\sum\limits_{k=1}^\infty \frac{(-1)^{k-1}}{k}$ 
   & — 
-  & konvergent, $\displaystyle\sum_{k=1}^\infty \frac{(-1)^{k-1}}{k} = \ln(2)$ \\
+  & konvergent, $\sum\limits \frac{(-1)^{k-1}}{k} = \ln(2)$ \\
 \hline
 \end{tabular}
-
+\end{center}
 
 
 \textbf{Majorantenkriterium:}  
@@ -273,7 +279,7 @@ Anwendbar für Reihen der Form:
 
 \begin{tabular}{ll}
 \checkmark & \( \frac{1}{k} \geq 0 \) \\
-\checkmark & \( \frac{1}{k+1} < \frac{1}{k} \) bzw. \( f(x) = \frac{1}{x},\ f'(x) = -\frac{1}{x^2} < 0 \) ⇒ monoton fallend \\
+\checkmark & \( \frac{1}{k+1} < \frac{1}{k} \) or \( f(x) = \frac{1}{x},\ f'(x) = -\frac{1}{x^2} < 0 \) ⇒ mon. fall.\\
 \checkmark & \( \lim \frac{1}{k} = 0 \)
 \Rightarrow \text{ konvergiert nach Leibniz}
 \end{tabular}
@@ -281,14 +287,14 @@ Anwendbar für Reihen der Form:
 \textbf{Wurzelkriterium:}  
 \( \alpha := \limsup \sqrt[n]{|a_n|} \)
 
-\[
-\alpha < 1 \Rightarrow \sum a_n \text{ konv. absolut}, \quad
+$
+\alpha < 1 \Rightarrow \sum a_n \text{ konv. absolut}, \newline
 \alpha > 1 \Rightarrow \sum a_n \text{ divergiert}
-\]
+$
 
 \textbf{Beispiel: } \( a_n = \frac{1}{3^n} \Rightarrow \sqrt[n]{|a_n|} = \frac{1}{3} \Rightarrow \alpha = \frac{1}{3} < 1 \)
 
-\( \Rightarrow \sum a_n \) konvergiert absolut
+\( \Rightarrow \sum a_n \) konv. abs.
 
 \textbf{Quotientenkriterium:}  
 \( \alpha := \lim \left| \frac{a_{n+1}}{a_n} \right| \)
@@ -308,7 +314,7 @@ Anwendbar für Reihen der Form:
 
 \[
 \Rightarrow \lim \frac{(k+1)^2}{(2k+2)(2k+1)} = \frac{1}{4} < 1
-\Rightarrow \sum a_k \text{ konvergiert absolut}
+\Rightarrow \sum a_k \text{ konv. abs.}
 \]
 
 \textbf{Zeta-Reihe:}  
@@ -339,8 +345,8 @@ Wenn \( \sum a_n \), \( \sum b_n \) absolut konvergieren, dann:
 \textbf{Konvergenzradius:}  
 Gegeben Potenzreihe \( \sum a_n x^n \), setze
 \[
-\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|} \quad \text{oder} \quad
-\rho = \limsup_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|, \quad
+\rho = \limsup_{n \to \infty} \sqrt[n]{|a_n|} \quad \text{or} \quad
+\rho = \limsup_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|,
 R = \frac{1}{\rho}
 \]
 
@@ -367,7 +373,7 @@ Falls \( \sum a_n x^n \), \( \sum b_n x^n \) Konvergenzradius \( \geq R \) haben
 \[
 \sum (a_n + b_n)x^n, \quad
 \sum_{n=0}^\infty \left( \sum_{k=0}^n a_k b_{n-k} \right) x^n
-\quad \text{haben ebenfalls Radius } \geq R
+\quad \text{haben Radius } \geq R
 \]
 
 \vspace{0.5em}
@@ -381,8 +387,8 @@ e^x = \sum_{k=0}^\infty \frac{x^k}{k!} = \lim_{n \to \infty} \left(1 + \frac{x}{
 \textbf{Eulerformel:}  
 \[
 e^{ix} = \cos(x) + i \sin(x)
-\quad\Rightarrow\quad
-\sin(x) = \frac{e^{ix} - e^{-ix}}{2i},\quad
+\Rightarrow \\
+\sin(x) = \frac{e^{ix} - e^{-ix}}{2i}, \quad
 \cos(x) = \frac{e^{ix} + e^{-ix}}{2}
 \]
 
@@ -573,29 +579,40 @@ Die \textit{Konvergenzscheibe} ist die grösste offene Kreisscheibe, auf der die
 
 \textbf{Satz (Randcharakterisierung):}  
 \[
-\partial S = \{x \in \mathbb{R}^n \mid \forall r > 0:\; B_r(x) \cap S \ne \emptyset \;\land\; B_r(x) \cap (\mathbb{R}^n \setminus S) \ne \emptyset \}
+\partial S = \{x \in \mathbb{R}^n \mid \forall r > 0: \\
+\; B_r(x) \cap S \ne \emptyset \;\land\; B_r(x) \cap (\mathbb{R}^n \setminus S) \ne \emptyset \}
 \]
 
 
 \textbf{Grenzwert in } $x_0$:  
 \[
 \lim_{x \to x_0} f(x) = y_0 \Leftrightarrow
-\forall \varepsilon > 0\; \exists \delta > 0:\; |x - x_0| < \delta \Rightarrow |f(x) - y_0| < \varepsilon
+\forall \varepsilon > 0\; \exists \delta > 0: \\
+\; |x - x_0| < \delta \Rightarrow |f(x) - y_0| < \varepsilon
 \]
 
 \textbf{Beispiel:}  
 $f(x) = 3x - 2 \quad \Rightarrow \lim_{x \to a} f(x) = 3a - 2$
 
 \textbf{Varia für Mengen}
+\renewcommand{\arraystretch}{1.2}
+
 \begin{center}
-\begin{tabular}{l c c c c c c c}
+\begin{tabularx}{\linewidth}{l 
+  >{\centering\arraybackslash}p{0.5cm} 
+  >{\centering\arraybackslash}p{0.1cm} 
+  >{\centering\arraybackslash}p{0.2cm} 
+  >{\centering\arraybackslash}p{0.2cm} 
+  >{\centering\arraybackslash}p{0.3cm} 
+  >{\centering\arraybackslash}p{0.3cm} 
+  >{\centering\arraybackslash}p{0.3cm}}
 \toprule
 & $B_r(x_0)$ & $\emptyset$ & $a$ & $\mathbb{R}$ & $(a,b]$ & $[a,\infty)$ & $(a,\infty)$ \\
 \midrule
-offen & Ja & Ja & Nein & Ja & Nein & Nein & Ja \\
-abgeschl. & Nein & Ja & Ja & Ja & Nein & Ja & Nein \\
+offen     & Ja   & Ja  & Nein & Ja  & Nein & Nein & Ja \\
+abg. & Nein & Ja  & Ja   & Ja  & Nein & Ja   & Nein \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 \begin{itemize}[leftmargin=1.5em]
   \item Das innere einer Menge ist immer offen
