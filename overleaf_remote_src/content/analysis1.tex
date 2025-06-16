@@ -42,6 +42,25 @@ IS: \(\sum_{i=1}^{k+1} i = \sum_{i=1}^k i + (k+1)
 = \frac{k(k+1)}{2} + (k+1)
 = \frac{(k+1)(k+2)}{2}\;\checkmark\)
 
+Sei \( f : X \to Y \) eine Abbildung.
+
+\begin{itemize}[left=0pt, itemsep=1.5em]
+
+  \item \textbf{Surjektiv:} \( f \) heisst surjektiv, falls jedes \( y \in Y \) mindestens ein Urbild hat, d.\,h.
+  \[
+  \forall y \in Y\ \exists x \in X : f(x) = y
+  \]
+
+  \item \textbf{Injektiv:} \( f \) heisst injektiv, falls jedes \( y \in Y \) höchstens ein Urbild hat, d.\,h.
+  \[
+  \forall x_1, x_2 \in X : f(x_1) = f(x_2) \Rightarrow x_1 = x_2
+  \]
+
+  \item \textbf{Bijektiv:} \( f \) heißt bijektiv, falls jedes \( y \in Y \) genau ein Urbild hat,\\
+  d.\,h. wenn \( f \) sowohl surjektiv als auch injektiv ist.
+
+\end{itemize}
+
 % Zahlen und Vektoren___________________________________________________________________________________________________
 %%%%%%
 \subsection{2. Zahlen und Vektoren}
@@ -421,31 +440,31 @@ Funktion & Potenzreihe & Konvergenzradius \\
   Beweis: $\|\mathrm{id}(x) - \mathrm{id}(x_0)\| = \|x - x_0\| \leq \delta = \varepsilon$
 
   \item[(iii)] \textbf{Projektion:} $\mathrm{pr}_i : \mathbb{R}^n \to \mathbb{R},\; \mathrm{pr}_i(x) = x_i$ ist stetig
+%
+%   \item[(iv)] \textbf{Indikatorfunktion:}  
+%     \[
+%       \chi_A(x) = \begin{cases}
+%         1, & x \in A \\
+%         0, & \text{sonst}
+%       \end{cases}
+%     \quad\text{nicht stetig an Randpunkten von } A
+%     \]
+%     Bsp: $\chi_{\{0\}}$ unstetig in $x = 0$  
+%     \[
+%       \delta = \tfrac{1}{2},\quad |x - 0| \leq \delta \Rightarrow
+%       |\chi_{\{0\}}(x) - \chi_{\{0\}}(0)| = 1 > \varepsilon = \tfrac{1}{2}
+%     \]
 
-  \item[(iv)] \textbf{Indikatorfunktion:}  
-    \[
-      \chi_A(x) = \begin{cases}
-        1, & x \in A \\
-        0, & \text{sonst}
-      \end{cases}
-    \quad\text{nicht stetig an Randpunkten von } A
-    \]
-    Bsp: $\chi_{\{0\}}$ unstetig in $x = 0$  
-    \[
-      \delta = \tfrac{1}{2},\quad |x - 0| \leq \delta \Rightarrow
-      |\chi_{\{0\}}(x) - \chi_{\{0\}}(0)| = 1 > \varepsilon = \tfrac{1}{2}
-    \]
-
-  \item[(v)] \textbf{Dirichlet-Funktion:} $\chi_{\mathbb{Q}}:\mathbb{R} \to \mathbb{R}$,  
-    \[
-      \chi_{\mathbb{Q}}(x) = \begin{cases}
-        1, & x \in \mathbb{Q} \\
-        0, & \text{sonst}
-      \end{cases}
-    \]
-    ist in keinem Punkt stetig (Sprungfunktion aller Dichten).
-\end{itemize}
-
+%   \item[(v)] \textbf{Dirichlet-Funktion:} $\chi_{\mathbb{Q}}:\mathbb{R} \to \mathbb{R}$,  
+%     \[
+%       \chi_{\mathbb{Q}}(x) = \begin{cases}
+%         1, & x \in \mathbb{Q} \\
+%         0, & \text{sonst}
+%       \end{cases}
+%     \]
+%     ist in keinem Punkt stetig (Sprungfunktion aller Dichten).
+% \end{itemize}
+%
 \textbf{Stetigkeit \& Rechenoperationen:}
 \begin{itemize}
   \item Addition, Subtraktion, Multiplikation, Division (ausser bei Nenner \(=0\)) komplexer Zahlen sind stetig.
@@ -1099,3 +1118,5 @@ Substitution: \( y = \sin x \Rightarrow dy = \cos x \, dx \), \( x \in \left[-\t
   
   \item \textbf{7. Integrand mit $\sqrt{a^2 - y^2}$:} Substitution $y = F(x) := a \sin x$
 \end{itemize}
+
+
