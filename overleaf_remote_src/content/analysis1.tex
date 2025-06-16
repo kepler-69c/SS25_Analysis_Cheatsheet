@@ -434,6 +434,12 @@ Funktion & Potenzreihe & Konvergenzradius \\
 
 \textbf{f ist stetig in } D, falls f in jedem Punkt von D stetig ist.
 
+\textbf{Gleichmässige Stetigkeit}\\
+Eine Funktion heisst ($\delta$ nicht abhängig von $x_0$) \uline{gleichmässig stetig} auf $\Omega$, falls gilt
+\[
+\forall \varepsilon > 0 \; \exists \delta > 0 \; \forall x, x_0 \in \Omega : |x - x_0| < \delta \Rightarrow |f(x) - f(x_0)| < \varepsilon
+\]
+
 \textbf{Beispiele stetiger/unstetiger Funktionen:}
 \begin{itemize}
   \item[(ii)] \textbf{Identität:} $\mathrm{id}_S(x) = x$ ist stetig für $S \subset \mathbb{R}^n$  
@@ -579,6 +585,26 @@ Die \textit{Konvergenzscheibe} ist die grösste offene Kreisscheibe, auf der die
 
 \textbf{Beispiel:}  
 $f(x) = 3x - 2 \quad \Rightarrow \lim_{x \to a} f(x) = 3a - 2$
+
+\textbf{Varia für Mengen}
+\begin{center}
+\begin{tabular}{l c c c c c c c}
+\toprule
+& $B_r(x_0)$ & $\emptyset$ & $a$ & $\mathbb{R}$ & $(a,b]$ & $[a,\infty)$ & $(a,\infty)$ \\
+\midrule
+offen & Ja & Ja & Nein & Ja & Nein & Nein & Ja \\
+abgeschl. & Nein & Ja & Ja & Ja & Nein & Ja & Nein \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{itemize}[leftmargin=1.5em]
+  \item Das innere einer Menge ist immer offen
+  \item $\Omega$ offen $\Rightarrow \mathring{\Omega} = \Omega$
+  \item Falls die Menge nur aus isolierten Punkten besteht (z.B. $\mathbb{Q}$), dann gilt $\mathring{\Omega} = \emptyset$
+  \item Der Abschluss einer Menge ist immer abgeschlossen
+  \item $\Omega$ abgeschlossen $\Rightarrow \overline{\Omega} = \Omega$
+  \item $(A \cap B)^\circ = \mathring{A} \cap \mathring{B}$ \quad und \quad $\overline{A \cup B} = \overline{A} \cup \overline{B}$
+\end{itemize}
 
 \textbf{Zwischenwertsatz:}  
 f stetig auf [a, b],\; f(a) \leq f(b),\; c \in [f(a), f(b)]  
@@ -814,7 +840,7 @@ Ableiten bei \(x_0\) ist eine lineare Abbildung \(T(f) := f'(x_0)\)
 \textbf{Mittelwertsatz:}  
 \(f'(x_0)\) entspricht der Steigung der Sekante durch \((a, f(a))\) und \((b, f(b))\)
 
-\textbf{Korollar 5.15 (Folgerung aus \(f'\)):}
+\textbf{Korollar (Folgerung aus \(f'\)):}
 \begin{itemize}
   \item[(i)] \(f' = 0 \Rightarrow f\) konstant
   \item[(ii)] \(f' \ge 0 \Rightarrow f\) monoton wachsend

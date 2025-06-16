@@ -490,11 +490,148 @@ Für $f \in C^2$ ist $\text{Hess}_f$ symmetrisch:
 \subsection{9. Umkehrsatz, implizite Funktionen, Untermannigfaltigkeit, Tangentialraum}
 
 
+\textbf{Diffeomorphismus:} $f : U \to V$, $U, V \subseteq \mathbb{R}^n$ offen.\\
+$f$ ist ein $C^k$-Diffeomorphismus $\Leftrightarrow$ $f$ bijektiv, $f \in C^k$, $f^{-1} \in C^k$.
+
+\vspace{0.5em}
+
+\textbf{Kriterium für $C^1$-Diffeomorphismus:} \\
+$f$ bijektiv und $\det(df(x)) \neq 0$ für alle $x \in U$.
+
+\vspace{0.5em}
+
+\textbf{Umkehrsatz:} \\
+$f \in C^1$, $df(x_0)$ invertierbar $\Rightarrow$ $\exists$ Umgebungen $U$ von $x_0$, $V$ von $f(x_0)$, sodass $f|_U : U \to V$ Diffeo mit Umkehrfunktion $g$ und
+\[
+\begin{aligned}
+g(f(x)) &= x \quad &&(x \in U) \\
+f(g(y)) &= y \quad &&(y \in V)
+\end{aligned}
+\]
+und $dg(y) = (df(x))^{-1}$.
+
+\vspace{0.5em}
+
+$\Rightarrow$ $f$ ist \textit{lokal} Diffeo. Für \textit{global} Diffeo: zusätzlich Bijektivität auf $\Omega$ nötig.
+
+\textbf{Implizite Funktion:} \\
+Gegeben $f(x, y) = 0$, $x \in \mathbb{R}^n$, $y \in \mathbb{R}^d$. Wenn
+\[
+f(x_0, y_0) = 0, \quad \partial_y f(x_0, y_0) \neq 0
+\]
+dann existiert $y(x)$ lokal mit $f(x, y(x)) = 0$, und:
+\[
+dh(x) = -(\partial_y f)^{-1} \cdot \partial_x f
+\]
+
+\textit{Beispiel:} $f(x,y) = 2e^x + y(x - 1) - y^2$, $f(0,1) = 0$,\\
+$\partial_y f = x - 2y$, an $(0,1) = -2 \neq 0$ $\Rightarrow$ lokal auflösbar.\\
+$\partial_x y = -(\partial_y f)^{-1} \cdot \partial_x f = -(-2)^{-1} \cdot 2 = 1$
+
+\vspace{1em}
+
+\textbf{Untermannigfaltigkeit:} \\
+$M \subseteq \mathbb{R}^n$ ist eine $k$-dimensionale $C^r$-Untermannigfaltigkeit, wenn $M$ lokal das Bild einer $C^r$-Einbettung $\psi: \Omega \to \mathbb{R}^n$ ist.\\
+Oder: $M = g^{-1}(0)$ mit $g: \mathbb{R}^n \to \mathbb{R}^{n-k}$ Submersion ($dg$ hat vollen Rang).
+
+\vspace{1em}
+
+\textbf{Regulärer Punkt/Wert:} \\
+$dg(p_0)$ voller Rang $\Rightarrow$ $p_0$ regulärer Punkt.\\
+$z_0$ regulärer Wert $\Leftrightarrow$ $dg$ ist in jedem Punkt von $g^{-1}(z_0)$ surjektiv.
+
+\vspace{0.5em}
+
+\textbf{Satz vom regulären Wert:} \\
+$z_0$ regulärer Wert $\Rightarrow$ $g^{-1}(z_0)$ ist $C^k$-Untermannigfaltigkeit der Dimension $n - d$.
+
+\vspace{0.5em}
+
+\textit{Beispiel:} $g(x,y) = x^2 + y^2$, $M = g^{-1}(1)$ (Einheitskreis)\\
+$\nabla g = (2x, 2y) \neq 0$ $\Rightarrow$ $M$ ist $1$-dimensionale Untermannigfaltigkeit.
+
+\vspace{1em}
+
+\textbf{Tangentialraum:} \\
+Für $M = \psi(V)$, $T_{x_0}M = \text{im}(d\psi(y_0))$.\\
+Für $M = g^{-1}(0)$, $T_{x_0}M = \ker(dg(x_0))$.
+
+\vspace{0.5em}
+
+\textit{Beispiel:} $M = \{(x_1,x_2) \mid x_1x_2 = 1\}$,\\
+$g(x_1,x_2) = x_1x_2$, $dg = (x_2, x_1)$,\\
+$\Rightarrow T_{x_0}M = \{v \in \mathbb{R}^2 \mid x_2v_1 + x_1v_2 = 0\}$
+
+z.B. bei $x = (1,1)$: $T_xM = \{(t, -t)\}$
+
+
 
 % Mehrdimensionale Riemann-integration,Satz von Fubini über wiederholte Integration, Jordan-Mass, Substitutionsregel für mehrdimensionale Integrale___________________________________________________________________________________________________
 %%%%%%
 \subsection{10. Mehrdimensionale Riemann integration, Satz von Fubini über wiederholte Integration, Jordan-Mass, Substitutionsregel für mehrdimensionale Integrale}
 
+\textbf{Treppenfunktion:}
+Ein Quader \( Q = I_1 \times \dots \times I_n \) mit \( I_k = (a_k, b_k) \). \\
+Volumen (Elementarinhalt): \( \mu(Q) = \prod_{k=1}^n |I_k| \). \\
+Treppenfunktion:
+\[
+f = \sum_{k=1}^K c_k \chi_{Q_k}, \quad
+\chi_{Q_k}(x) = \begin{cases}
+1, & x \in Q_k \\
+0, & x \notin Q_k
+\end{cases}
+\]
+Riemann-Integral:
+\[
+\int_Q f\,d\mu = \sum_{k=1}^K c_k \mu(Q_k), \quad
+d\mu = dx_1 \dots dx_n
+\]
+
+\vspace{0.5em}
+\textbf{Eigenschaften:}
+\[
+f \leq g \Rightarrow \int_Q f\,d\mu \leq \int_Q g\,d\mu \qquad
+\int_Q (\alpha f + \beta g)\,d\mu = \alpha \int_Q f\,d\mu + \beta \int_Q g\,d\mu
+\]
+\[
+\left| \int_Q f\,d\mu \right| \leq \int_Q |f|\,d\mu \leq \sup_Q |f| \cdot \mu(Q)
+\]
+
+\vspace{0.5em}
+\textbf{Satz von Fubini}
+Für \( Q = [a,b] \times [c,d] \subset \mathbb{R}^2 \), \( f \in C^0(Q) \):
+\[
+\int_Q f\,d\mu = \int_a^b \left( \int_c^d f(x,y)\,dy \right)\,dx
+= \int_c^d \left( \int_a^b f(x,y)\,dx \right)\,dy
+\]
+
+\vspace{0.5em}
+\textbf{Jordan-Mass:}  
+\( Q \subset \mathbb{R}^n \) Quader, \( \Omega \subset Q \), \( \chi_\Omega \) charakt. Funktion.  
+Falls \( \mu(\Omega) = \int_Q \chi_\Omega d\mu \), dann ist \( \Omega \) Jordan-messbar.  
+\( f : \Omega \to \mathbb{R} \) ist Riemann-integrierbar, falls \( \tilde{f} = 0 \) auf \( Q \setminus \Omega \) stetig fortsetzbar ist:
+\[
+\int_\Omega f\,d\mu = \int_Q \tilde{f}\,d\mu
+\]
+
+\vspace{0.5em}
+\textbf{Substitutionsregel}
+\( \Phi : \Omega \to \mathbb{R}^n \) Diffeomorphismus auf \( \Phi(\Omega) \), \( f \) integrierbar auf \( \Phi(\Omega) \):
+\[
+\int_{\Phi(\Omega)} f\,d\mu =
+\int_\Omega (f \circ \Phi) \cdot |\det(d\Phi)|\,d\tilde{\mu}
+\]
+\( d\tilde{\mu} \): Integration über neue Variablen.
+
+\vspace{0.5em}
+\textbf{Beispiel:} \( f(x,y) = e^{\sqrt{x^2 + y^2}} \) über Einheitskreis \( B_1(0,0) \). \\
+Substitution: \( \Phi(r,\varphi) = (r\cos\varphi,\, r\sin\varphi) \), \( \det(d\Phi) = r \)
+\[
+\int_{B_1} e^{\sqrt{x^2+y^2}}\,d\mu
+= \int_0^1 \int_0^{2\pi} e^r \cdot r\,d\varphi\,dr
+= 2\pi \int_0^1 r e^r\,dr
+= 2\pi \left( re^r - e^r \right)\big|_0^1 = 2\pi(e - 1)
+\]
 
 % Vektorfelder und die Sätze von Green, Stokes und Gauss (WICHTIG!!!)___________________________________________________________________________________________________
 %%%%%%
@@ -569,6 +706,40 @@ Sei $M \subseteq \mathbb{R}^n$ eine $C^k$-Untermannigfaltigkeit der Dimension $d
   \item (ii) Für $n = 3$: Dies ist das (Oberflächen-)Flächenintegral von $X$ durch $M$.
   \item (iii) Motivation: In der Strömungsmechanik beschreibt der Fluss die Menge an „Material“, die pro Zeiteinheit durch $M$ strömt.
 \end{itemize}
+
+\textbf{Flächeninhalt:} \\
+$\Phi : B \subset \mathbb{R}^2 \to \mathbb{R}^3$, $\Phi(u,v)$ parametrisiert Fläche $S = \Phi(B)$. \\
+\textbf{Flächenelement:}
+\[
+dA = \|\partial_u \Phi \times \partial_v \Phi\| \, du\,dv = |\det(d\Phi)| \, du\,dv
+\]
+
+\textbf{Flächeninhalt:}
+\[
+\mu(S) = \int_S dA = \int_B \|\partial_u \Phi \times \partial_v \Phi\| \, du\,dv
+\]
+
+Allg. für $\Phi: B \subset \mathbb{R}^2 \to \mathbb{R}^n$:
+\[
+dA = \sqrt{\det((d\Phi)^T \cdot d\Phi)} \, d\mu
+\]
+
+\vspace{1em}
+
+\textbf{Oberflächenintegral:} \\
+$f : S \subset \mathbb{R}^3 \to \mathbb{R}$, $S = \Phi(B)$ parametrisiert:
+\[
+\int_S f(x,y,z)\, dA = \int_B f(\Phi(u,v)) \cdot \|\partial_u \Phi \times \partial_v \Phi\| \, du\,dv
+\]
+
+\vspace{1em}
+
+\textbf{Koorientierung (Normalenvektor):}
+\[
+\vec{n} = \frac{\partial_u \Phi \times \partial_v \Phi}{\|\partial_u \Phi \times \partial_v \Phi\|}
+\]
+
+
 
 \textbf{Satz (Stokes):} \\
 \[
