@@ -493,6 +493,34 @@ Eine Funktion heisst ($\delta$ nicht abhängig von $x_0$) \uline{gleichmässig s
   \]
 \end{itemize}
 
+\textbf{Beispiele zur $\varepsilon$-$\delta$-Definition der Stetigkeit}
+
+\textbf{1. $f(x) = x - 7$ stetig auf $\mathbb{R}$:}
+
+Sei $x_0 \in \mathbb{R}$, $\varepsilon > 0$ beliebig.  
+Wähle $\delta := \varepsilon$. Dann gilt für $|x - x_0| \leq \delta$:
+\[
+|f(x) - f(x_0)| = |(x - 7) - (x_0 - 7)| = |x - x_0| \leq \delta = \varepsilon
+\]
+$\Rightarrow$ $f$ ist stetig in $x_0$.
+
+\vspace{0.5em}
+
+\textbf{2. $f(x) = \sqrt{x}$ stetig auf $(0, \infty)$:}
+
+Sei $x_0 \in (0, \infty)$, $\varepsilon > 0$ beliebig.  
+Für $x \in (0, \infty)$ mit $|x - x_0| \leq \delta$ gilt:
+\[
+\begin{aligned}
+|f(x) - f(x_0)| &= |\sqrt{x} - \sqrt{x_0}| = \left| \frac{x - x_0}{\sqrt{x} + \sqrt{x_0}} \right| \\
+&\leq \frac{|x - x_0|}{\sqrt{x_0}} \leq \frac{\delta}{\sqrt{x_0}}
+\end{aligned}
+\]
+Wähle $\delta := \varepsilon \sqrt{x_0} \Rightarrow |f(x) - f(x_0)| \leq \varepsilon$
+
+$\Rightarrow$ $f$ ist stetig in $x_0$.
+
+
 \textbf{Stetigkeit von Polynomen:}
 \begin{itemize}
   \item[(i)] \(f(x) = a_1 x + a_0\) mit \(a_0,a_1 \in \mathbb{R}\) ist stetig (Summe konst. und linearer Funktion).
